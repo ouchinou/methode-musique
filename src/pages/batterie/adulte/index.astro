@@ -1,33 +1,33 @@
 ---
 // Code serveur (exécuté à la compilation)
-const title = "Parcours Adulte - Piano";
+const title = "Parcours Adulte - Batterie 🥁";
 
 const modules = [
   {
     id: 1,
-    titre: "Les Fondations du Clavier",
-    description: "Repérage des notes, posture naturelle des mains et premier accord d'accompagnement.",
+    titre: "Premier Groove & Prise en Main",
+    description: "Apprends à tenir tes baguettes, trouve ta posture et joue ton tout premier rythme binaire (poums et tchaks).",
     duree: "15 min",
     niveau: "Débutant",
-    lien: "/methode-musique/piano/adulte/cours1", // 🌟 CORRIGÉ : pointe vers le nouveau dossier
+    lien: "/methode-musique/batterie/adulte/cours1", // 🌟 Pointera vers ton cours1.md de batterie
     tag: "Essentiel"
   },
   {
     id: 2,
-    titre: "L'Indépendance des Mains & Le Rythme",
-    description: "Comment jouer un rythme simple à la main gauche pendant que la main droite joue la mélodie.",
+    titre: "L'Indépendance du Pied Droit",
+    description: "Travaille la coordination entre ta main droite sur la cymbale et ton pied droit sur la grosse caisse.",
     duree: "20 min",
     niveau: "Débutant",
-    lien: "/methode-musique/piano/adulte/lecon2", // 🌟 CORRIGÉ : pointe vers le nouveau dossier
+    lien: "/methode-musique/batterie/adulte/lecon2", // 🌟 Pointera vers ta lecon2.md
     tag: "Technique"
   },
   {
     id: 3,
-    titre: "Ton Premier Morceau avec l'IA",
-    description: "Mets en pratique tes acquis sur une grille moderne avec une orchestration générée par IA.",
+    titre: "Ton Premier Fill (Break)",
+    description: "Apprends à faire une transition stylée sur les toms pour relancer le refrain de ton morceau.",
     duree: "25 min",
     niveau: "Intermédiaire",
-    lien: "/methode-musique/piano/adulte/morceaux", // 🌟 CORRIGÉ : pointe vers tes morceaux de piano
+    lien: "/methode-musique/batterie/adulte/technique", // 🌟 Pointera vers technique.astro
     tag: "Pratique"
   }
 ];
@@ -43,15 +43,15 @@ const modules = [
 	<body>
 		<div class="layout-container">
 			<nav class="top-nav">
-				<!-- 🌟 CORRIGÉ : ramène l'utilisateur au choix Enfant/Adulte pour le PIANO -->
-				<a href="/methode-musique/piano" class="back-link">← Changer de parcours (Piano)</a>
-				<span class="badge-status">Parcours Adulte 🎹</span>
+				<!-- 🌟 Ramène l'utilisateur à l'accueil Batterie (Enfant / Adulte) -->
+				<a href="/methode-musique/batterie" class="back-link">← Changer de parcours (Batterie)</a>
+				<span class="badge-status">Parcours Adulte ⚡</span>
 			</nav>
 
 			<main class="content">
 				<header class="hero">
-					<h1>Prenez le contrôle du clavier</h1>
-					<p class="subtitle">Une méthode directe, moderne, et sans théorie superflue pour jouer rapidement ce qui vous plaît.</p>
+					<h1>Prenez le contrôle du rythme</h1>
+					<p class="subtitle">Une méthode physique, directe et efficace pour acquérir l'indépendance des membres et groover rapidement sur vos morceaux préférés.</p>
 				</header>
 
 				<section class="modules-list">
@@ -85,13 +85,13 @@ const modules = [
 
 <style>
 	:root {
-		--bg: #0f172a;
-		--card-bg: #1e293b;
-		--border: #334155;
-		--text: #f8fafc;
-		--text-muted: #94a3b8;
-		--accent: #38bdf8;
-		--accent-hover: #0ea5e9;
+		--bg: #0b0f19;
+		--card-bg: #111827;
+		--border: #1f2937;
+		--text: #f9fafb;
+		--text-muted: #9ca3af;
+		--accent: #f59e0b; /* Orange chaud typique batterie */
+		--accent-hover: #d97706;
 	}
 
 	* {
@@ -132,7 +132,7 @@ const modules = [
 	}
 
 	.badge-status {
-		background-color: rgba(56, 189, 248, 0.1);
+		background-color: rgba(245, 158, 11, 0.1);
 		color: var(--accent);
 		padding: 6px 12px;
 		border-radius: 9999px;
@@ -244,7 +244,7 @@ const modules = [
 
 	.action-btn {
 		background-color: var(--accent);
-		color: #0f172a;
+		color: #0b0f19;
 		padding: 8px 18px;
 		border-radius: 8px;
 		font-weight: 600;
