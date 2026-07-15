@@ -1,0 +1,76 @@
+---
+const title = "Répertoire Morceaux - Batterie 🥁";
+
+const tracks = [
+  { title: "Billie Jean", artist: "Michael Jackson", diff: "Facile", desc: "Le rythme binaire parfait par excellence. Appliquez le module 1 !" },
+  { title: "Seven Nation Army", artist: "The White Stripes", diff: "Facile", desc: "Idéal pour caler le pied droit et la grosse caisse de façon métronomique." },
+  { title: "Highway to Hell", artist: "AC/DC", diff: "Moyen", desc: "Travaillez la régularité des croches à la main droite et la puissance de la caisse claire." }
+];
+---
+
+<html lang="fr">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<title>{title}</title>
+	</head>
+	<body>
+		<div class="layout-container">
+			<nav class="top-nav">
+				<a href="/methode-musique/batterie/adulte" class="back-link">← Retour au parcours</a>
+				<span class="badge-status">Playlists 🎶</span>
+			</nav>
+
+			<main class="content">
+				<header class="hero">
+					<h1>Morceaux pour Pratiquer</h1>
+					<p class="subtitle">Une sélection de morceaux légendaires pour mettre en pratique vos grooves et tester votre régularité en situation réelle.</p>
+				</header>
+
+				<section class="tracks-list">
+					{tracks.map((track) => (
+						<div class="track-card">
+							<div class="track-info">
+								<h3>{track.title}</h3>
+								<p class="artist">{track.artist}</p>
+								<p class="desc">{track.desc}</p>
+							</div>
+							<span class="difficulty">{track.diff}</span>
+						</div>
+					))}
+				</section>
+			</main>
+		</div>
+	</body>
+</html>
+
+<style>
+	:root {
+		--bg: #0b0f19;
+		--card-bg: #111827;
+		--border: #1f2937;
+		--text: #f9fafb;
+		--text-muted: #9ca3af;
+		--accent: #f59e0b;
+	}
+	body {
+		background-color: var(--bg);
+		color: var(--text);
+		font-family: system-ui, sans-serif;
+		padding: 24px;
+	}
+	.layout-container { max-width: 800px; margin: 0 auto; }
+	.top-nav { display: flex; justify-content: space-between; margin-bottom: 40px; }
+	.back-link { color: var(--text-muted); text-decoration: none; }
+	.back-link:hover { color: var(--accent); }
+	.badge-status { background: rgba(245, 158, 11, 0.1); color: var(--accent); padding: 4px 12px; border-radius: 999px; font-size: 0.85rem; }
+	h1 { font-size: 2.2rem; margin-bottom: 12px; }
+	.subtitle { color: var(--text-muted); margin-bottom: 40px; }
+	.tracks-list { display: flex; flex-direction: column; gap: 16px; }
+	.track-card { background: var(--card-bg); border: 1px solid var(--border); padding: 20px; border-radius: 12px; display: flex; justify-content: space-between; align-items: center; }
+	.track-info h3 { margin-bottom: 4px; }
+	.artist { color: var(--accent); font-weight: 600; font-size: 0.9rem; margin-bottom: 8px;}
+	.desc { color: var(--text-muted); font-size: 0.9rem; }
+	.difficulty { background: #1e293b; color: #cbd5e1; padding: 6px 12px; border-radius: 6px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; }
+</style>

@@ -1,35 +1,5 @@
 ---
-const title = "Le Jardin de la Batterie 🌟";
-
-const leçons = [
-  {
-    id: 1,
-    titre: "Le Concert de la Jungle",
-    description: "Fais rugir le Lion (grosse caisse) et crier le Singe (caisse claire) !",
-    duree: "10 min",
-    badge: "Débutant",
-    lien: "/methode-musique/batterie/enfant/lecon1", // 🌟 Lien corrigé
-    emoji: "🦁"
-  },
-  {
-    id: 2,
-    titre: "La Ronde des Écureuils",
-    description: "Apprends à rebondir sur tes cymbales de manière fluide et régulière.",
-    duree: "15 min",
-    badge: "Moyen",
-    lien: "/methode-musique/batterie/enfant/lecon2", // 🌟 Lien corrigé
-    emoji: "🐿️"
-  },
-  {
-    id: 3,
-    titre: "Super Rythme Éclair",
-    description: "Ton tout premier jeu de rapidité en rythme !",
-    duree: "15 min",
-    badge: "Rythme",
-    lien: "/methode-musique/batterie/enfant/rythme", // 🌟 Lien vers rythme.astro
-    emoji: "⚡"
-  }
-];
+const title = "Le Labo des Rythmes - Batterie Enfant 🥁";
 ---
 
 <html lang="fr">
@@ -42,39 +12,79 @@ const leçons = [
 	<body>
 		<div class="layout-container">
 			<nav class="top-nav">
-				<a href="/methode-musique/batterie" class="back-link">← Changer de parcours</a>
+				<a href="/methode-musique/batterie" class="back-link">← Retour à l'accueil Batterie</a>
 				<span class="badge-status">Espace Enfants 🎈</span>
 			</nav>
 
 			<main class="content">
 				<header class="hero">
-					<h1>Bienvenue au Jardin Musical !</h1>
-					<p class="subtitle">Ici, on apprend la batterie en s'amusant avec des jeux et des animaux. Choisis ta mission !</p>
+					<h1>La Fabrique à Rythmes ! ⚡</h1>
+					<p class="subtitle">Ici, on apprend à découper le temps comme des parts de gâteau pour créer des super rythmes avec tes baguettes.</p>
 				</header>
 
-				<section class="modules-list">
-					<h2>Tes Missions de Batteur 🥁</h2>
-					<div class="grid">
-						{leçons.map((lecon) => (
-							<div class="module-card">
-								<div class="card-header">
-									<span class="module-number">Mission {lecon.id}</span>
-									<span class="emoji-indicator">{lecon.emoji}</span>
-								</div>
-								<div class="card-body">
-									<h3>{lecon.titre}</h3>
-									<p>{lecon.description}</p>
-								</div>
-								<div class="card-footer">
-									<div class="meta">
-										<span>⏱️ {lecon.duree}</span>
-										<span>🎨 {lecon.badge}</span>
-									</div>
-									<a href={lecon.lien} class="action-btn">Jouer !</a>
-								</div>
+				<section class="rythme-grid">
+					<!-- Carte 1 : La Noire -->
+					<div class="rythme-card noire">
+						<div class="card-header">
+							<span class="animal-emoji">🦁</span>
+							<span class="music-note">La Noire (1 coup par seconde)</span>
+						</div>
+						<div class="card-body">
+							<h3>Le pas du Lion</h3>
+							<p>C'est un rythme lourd et régulier. Imagine un lion qui marche tranquillement dans la savane.</p>
+							<div class="visual-beats">
+								<span class="beat active">TAP</span>
+								<span class="beat active">TAP</span>
+								<span class="beat active">TAP</span>
+								<span class="beat active">TAP</span>
 							</div>
-						))}
+							<p class="instruction">Tape une fois sur chaque clic du métronome !</p>
+						</div>
 					</div>
+
+					<!-- Carte 2 : Les Croches -->
+					<div class="rythme-card croches">
+						<div class="card-header">
+							<span class="animal-emoji">🐰</span>
+							<span class="music-note">Les Croches (2 coups par seconde)</span>
+						</div>
+						<div class="card-body">
+							<h3>Le saut du Lapin</h3>
+							<p>Le lapin court deux fois plus vite ! On doit diviser chaque temps en deux petits sauts.</p>
+							<div class="visual-beats">
+								<span class="beat active small">Ta</span><span class="beat active small">pa</span>
+								<span class="beat active small">Ta</span><span class="beat active small">pa</span>
+								<span class="beat active small">Ta</span><span class="beat active small">pa</span>
+								<span class="beat active small">Ta</span><span class="beat active small">pa</span>
+							</div>
+							<p class="instruction">Joue deux coups réguliers entre chaque clic !</p>
+						</div>
+					</div>
+
+					<!-- Carte 3 : Le Soupir -->
+					<div class="rythme-card soupir">
+						<div class="card-header">
+							<span class="animal-emoji">🐱</span>
+							<span class="music-note">Le Soupir (Le Silence)</span>
+						</div>
+						<div class="card-body">
+							<h3>Le chat qui dort</h3>
+							<p>Chut ! Parfois, la batterie doit faire silence pour laisser respirer la musique.</p>
+							<div class="visual-beats">
+								<span class="beat active">TAP</span>
+								<span class="beat silent">CHUT...</span>
+								<span class="beat active">TAP</span>
+								<span class="beat silent">CHUT...</span>
+							</div>
+							<p class="instruction">Ouvre bien tes oreilles et ne joue rien pendant le "CHUT" !</p>
+						</div>
+					</div>
+				</section>
+
+				<section class="metronome-section">
+					<h2>Ton Super Métronome de Poche ⏰</h2>
+					<p>Lance la piste et essaie de caler tes exercices d'animaux au même tempo !</p>
+					<audio controls src="/audio/metronome-60bpm.mp3" style="width: 100%; margin: 15px 0;"></audio>
 				</section>
 			</main>
 		</div>
@@ -83,26 +93,33 @@ const leçons = [
 
 <style>
 	:root {
-		--bg: #0b1329;
-		--card-bg: #1c2541;
-		--border: #3a506b;
-		--text: #ffffff;
-		--text-muted: #a5b1c2;
-		--accent-enfant: #10b981;
-		--accent-hover: #059669;
+		--bg: #0f172a;
+		--card-bg: #1e293b;
+		--border: #334155;
+		--text: #f8fafc;
+		--text-muted: #94a3b8;
+		--accent: #38bdf8; /* Bleu ciel super fun pour enfants */
+		--accent-hover: #0ea5e9;
+		--success: #4ade80;
+		--warning: #fbbf24;
+		--danger: #f87171;
 	}
 
-	* { box-sizing: border-box; margin: 0; padding: 0; }
+	* {
+		box-sizing: border-box;
+		margin: 0;
+		padding: 0;
+	}
 
 	body {
 		background-color: var(--bg);
 		color: var(--text);
-		font-family: 'Comic Sans MS', 'Inter', system-ui, sans-serif;
+		font-family: system-ui, -apple-system, sans-serif;
 		min-height: 100vh;
 	}
 
 	.layout-container {
-		max-width: 900px;
+		max-width: 800px;
 		margin: 0 auto;
 		padding: 24px;
 	}
@@ -117,29 +134,34 @@ const leçons = [
 	.back-link {
 		color: var(--text-muted);
 		text-decoration: none;
-		font-size: 1rem;
-		font-weight: bold;
+		font-size: 0.95rem;
 		transition: color 0.2s;
 	}
-	.back-link:hover { color: var(--accent-enfant); }
+
+	.back-link:hover {
+		color: var(--accent);
+	}
 
 	.badge-status {
-		background-color: rgba(16, 185, 129, 0.15);
-		color: var(--accent-enfant);
-		padding: 8px 16px;
+		background-color: rgba(56, 189, 248, 0.1);
+		color: var(--accent);
+		padding: 6px 14px;
 		border-radius: 9999px;
-		font-size: 0.9rem;
+		font-size: 0.85rem;
 		font-weight: 700;
 	}
 
-	.hero { margin-bottom: 40px; text-align: center; }
-	
+	.hero {
+		text-align: center;
+		margin-bottom: 40px;
+	}
+
 	h1 {
-		font-size: 2.3rem;
-		font-weight: 900;
-		margin-bottom: 15px;
-		color: #38bdf8;
-		text-shadow: 0 4px 6px rgba(0,0,0,0.2);
+		font-size: 2.5rem;
+		font-weight: 800;
+		margin-bottom: 12px;
+		color: #ffffff;
+		text-shadow: 0 0 10px rgba(56, 189, 248, 0.3);
 	}
 
 	.subtitle {
@@ -148,62 +170,114 @@ const leçons = [
 		line-height: 1.5;
 	}
 
-	h2 {
-		font-size: 1.6rem;
-		font-weight: 800;
-		margin-bottom: 24px;
-		color: var(--accent-enfant);
-	}
-
-	.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px; }
-
-	.module-card {
-		background-color: var(--card-bg);
-		border: 3px solid var(--border);
-		border-radius: 24px;
-		padding: 24px;
+	.rythme-grid {
 		display: flex;
 		flex-direction: column;
-		justify-content: space-between;
-		gap: 16px;
+		gap: 24px;
+		margin-bottom: 40px;
+	}
+
+	.rythme-card {
+		background-color: var(--card-bg);
+		border: 2px solid var(--border);
+		border-radius: 20px;
+		padding: 24px;
 		transition: transform 0.2s, border-color 0.2s;
 	}
-	.module-card:hover {
-		transform: scale(1.02);
-		border-color: var(--accent-enfant);
+
+	.rythme-card:hover {
+		transform: scale(1.01);
 	}
 
-	.card-header { display: flex; justify-content: space-between; align-items: center; }
-	.module-number { font-size: 0.85rem; font-weight: 800; color: #38bdf8; text-transform: uppercase; }
-	.emoji-indicator { font-size: 2rem; }
+	/* Bordures personnalisées selon l'ambiance */
+	.rythme-card.noire { border-color: var(--warning); }
+	.rythme-card.croches { border-color: var(--success); }
+	.rythme-card.soupir { border-color: var(--danger); }
 
-	h3 { font-size: 1.3rem; font-weight: 800; margin-bottom: 8px; }
-	.card-body p { color: var(--text-muted); line-height: 1.5; font-size: 0.95rem; }
-
-	.card-footer {
+	.card-header {
 		display: flex;
-		justify-content: space-between;
 		align-items: center;
-		border-top: 2px dashed var(--border);
-		padding-top: 16px;
-		margin-top: 10px;
+		gap: 12px;
+		margin-bottom: 16px;
 	}
 
-	.meta { display: flex; flex-direction: column; gap: 4px; font-size: 0.85rem; color: var(--text-muted); font-weight: bold; }
+	.animal-emoji {
+		font-size: 2rem;
+	}
 
-	.action-btn {
-		background-color: var(--accent-enfant);
-		color: #0b1329;
-		padding: 10px 20px;
-		border-radius: 20px;
-		font-weight: 900;
-		text-decoration: none;
+	.music-note {
+		font-size: 0.85rem;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		color: var(--text-muted);
+	}
+
+	h3 {
+		font-size: 1.4rem;
+		font-weight: 700;
+		margin-bottom: 8px;
+	}
+
+	.card-body p {
+		color: var(--text-muted);
+		font-size: 0.95rem;
+		line-height: 1.5;
+		margin-bottom: 20px;
+	}
+
+	/* Représentation visuelle des temps */
+	.visual-beats {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		gap: 10px;
+		margin-bottom: 16px;
+	}
+
+	.beat {
+		background-color: #0f172a;
+		border: 2px solid var(--border);
+		padding: 12px;
+		border-radius: 12px;
+		text-align: center;
+		font-weight: 800;
 		font-size: 1rem;
-		box-shadow: 0 4px 0 #059669;
-		transition: transform 0.1s, box-shadow 0.1s;
 	}
-	.action-btn:active {
-		transform: translateY(4px);
-		box-shadow: 0 0px 0 #059669;
+
+	.beat.active {
+		background-color: rgba(56, 189, 248, 0.1);
+		border-color: var(--accent);
+		color: #ffffff;
+	}
+
+	/* Couleurs spécifiques pour l'activité du temps */
+	.noire .beat.active { background-color: rgba(251, 191, 36, 0.1); border-color: var(--warning); color: var(--warning); }
+	.croches .beat.active { background-color: rgba(74, 222, 128, 0.1); border-color: var(--success); color: var(--success); }
+	.soupir .beat.active { background-color: rgba(56, 189, 248, 0.1); border-color: var(--accent); color: var(--accent); }
+	.soupir .beat.silent { background-color: rgba(248, 113, 113, 0.05); border-color: rgba(248, 113, 113, 0.2); color: var(--danger); font-style: italic; }
+
+	.beat.small {
+		font-size: 0.85rem;
+		padding: 8px;
+	}
+
+	.instruction {
+		font-size: 0.9rem;
+		font-weight: 600;
+		color: var(--text) !important;
+		margin-bottom: 0 !important;
+	}
+
+	.metronome-section {
+		background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.1), transparent);
+		border: 1px solid var(--border);
+		padding: 24px;
+		border-radius: 20px;
+		text-align: center;
+	}
+
+	.metronome-section h2 {
+		font-size: 1.5rem;
+		margin-bottom: 8px;
 	}
 </style>
