@@ -1,13 +1,11 @@
 ---
 layout: ../../../layouts/LayoutAdulte.astro
 title: "Module 1 : Les Fondations du Clavier"
-
+---
 
 # 🎹 Module 1 : Les Fondations du Clavier & Premier Accord
 
 L'objectif de cette session est de vous repérer instantanément sur les 88 touches du clavier et de jouer votre premier accord d'accompagnement.
-
-
 
 ## 🔍 Étape 1 : Le repérage structurel
 
