@@ -1,41 +1,50 @@
 ---
 layout: ../../../layouts/LayoutAdulte.astro
-title: "Module 1 : Les Fondations du Clavier"
+title: "Module 1 : Votre Premier Groove"
 ---
 
-# 🎹 Module 1 : Les Fondations du Clavier & Premier Accord
+# 🥁 Module 1 : Votre Premier Groove & Prise en Main
 
-L'objectif de cette session est de vous repérer instantanément sur les 88 touches du clavier et de jouer votre premier accord d'accompagnement.
-
-## 🔍 Étape 1 : Le repérage structurel
-
-Le clavier n'est pas un bloc uniforme. Il est structuré autour d'une alternance de **groupes de 2 touches noires** et de **groupes de 3 touches noires**.
-
-1. Repérez un groupe de **2 touches noires**.
-2. La touche blanche située immédiatement à gauche de ce groupe est un **DO** (ou *C* en notation internationale).
-3. Ce motif se répète sur toute l'étendue de votre piano.
-
-> **Règle d'or de la posture :** Vos mains doivent être détendues. Imaginez que vous tenez une balle de tennis souple dans chaque paume. Vos doigts doivent attaquer la touche avec la pulpe (le bout du doigt), jamais à plat.
+L'objectif de cette session est de maîtriser la tenue des baguettes, d'adopter une posture saine derrière l'instrument, et de jouer votre tout premier rythme binaire (le célèbre "poums et tchaks").
 
 ---
 
-## 🎼 Étape 2 : Votre premier accord (Do Majeur - C)
+## 🔍 Étape 1 : La tenue des baguettes & la posture
 
-Un accord est la superposition de plusieurs notes jouées simultanément. Pour l'accord de Do Majeur :
+Avant de frapper, il est essentiel de bien tenir vos baguettes pour éviter les tensions et maximiser le rebond :
 
-*   **Doigt 1 (Pouce)** : Posé sur le **Do**
-*   **Doigt 3 (Majeur)** : Posé sur le **Mi** (deux touches blanches à droite du Do)
-*   **Doigt 5 (Auriculaire)** : Posé sur le **Sol** (deux touches blanches à droite du Mi)
+1. **La pince (le pivot)** : Saisissez la baguette entre votre pouce et la deuxième phalange de votre index, à environ un tiers du bas de la baguette.
+2. **Le verrou** : Enveloppez délicatement le reste de la baguette avec vos autres doigts, sans serrer. La baguette doit pouvoir pivoter librement.
+3. **La posture** : Assurez-vous que la hauteur de votre siège permet à vos cuisses d'être parallèles au sol (ou légèrement inclinées vers le bas). Vos épaules doivent rester basses et détendues.
 
-Appuyez sur ces trois touches en même temps. Vous venez de jouer l'accord de **Do Majeur (C)** !
+> **Règle d'or de la frappe :** Ne forcez pas avec le bras. Le mouvement doit partir principalement du poignet, comme si vous rebondissiez sur un trampoline.
+
+---
+
+## 🎼 Étape 2 : Le premier rythme binaire (Poums & Tchaks)
+
+Nous allons construire un rythme simple en 4 temps. Vous utiliserez trois éléments : la **Grosse Caisse** (pied droit), la **Caisse Claire** (main gauche) et la **Charley** (main droite, fermée avec le pied gauche).
+
+Pour cet exercice :
+*   **La Charley (Hi-Hat)** joue sur tous les temps : **1 - 2 - 3 - 4**
+*   **La Grosse Caisse (Bass Drum)** joue sur le temps **1** et le temps **3**
+*   **La Caisse Claire (Snare)** joue sur le temps **2** et le temps **4**
+
+### Guide de jeu pas à pas :
+*   **Temps 1** : Grosse Caisse + Charley en même temps (*Poum*)
+*   **Temps 2** : Caisse Claire + Charley en même temps (*Tchak*)
+*   **Temps 3** : Grosse Caisse + Charley en même temps (*Poum*)
+*   **Temps 4** : Caisse Claire + Charley en même temps (*Tchak*)
+
+Répétez ce cycle en boucle de manière régulière.
 
 ---
 
 ## ⚙️ Entraînement au métronome (60 BPM)
 
-Pour travailler votre régularité, lancez la piste de métronome ci-dessous. Jouez l'accord de Do Majeur de la main droite sur chaque premier temps (tous les 4 clics).
+Pour stabiliser votre tempo, lancez la piste de métronome ci-dessous. Essayez de caler chaque coup de Charley parfaitement sur le clic du métronome.
 
 <audio controls src="/audio/metronome-60bpm.mp3" style="width: 100%; margin: 15px 0;"></audio>
 
-*   **Mesure :** 1 (Accord) - 2 (Silence) - 3 (Silence) - 4 (Silence)
-*   **Focus :** Vos 3 doigts doivent enfoncer les touches au même millième de seconde pour que l'accord soit parfaitement propre.
+*   **Vitesse** : Débutez à 60 BPM.
+*   **Focus** : Vos frappes simultanées (par exemple Grosse Caisse + Charley) doivent tomber exactement en même temps, sans décalage ("flas").
