@@ -1,6 +1,6 @@
 ---
 // Code serveur (exécuté à la compilation)
-const title = "Parcours Adulte - Apprentissage Autonome";
+const title = "Parcours Adulte - Piano";
 
 const modules = [
   {
@@ -9,7 +9,7 @@ const modules = [
     description: "Repérage des notes, posture naturelle des mains et premier accord d'accompagnement.",
     duree: "15 min",
     niveau: "Débutant",
-    lien: "/methode-musique/adulte/lecon1",
+    lien: "/methode-musique/piano/adulte/cours1", // 🌟 CORRIGÉ : pointe vers le nouveau dossier
     tag: "Essentiel"
   },
   {
@@ -18,7 +18,7 @@ const modules = [
     description: "Comment jouer un rythme simple à la main gauche pendant que la main droite joue la mélodie.",
     duree: "20 min",
     niveau: "Débutant",
-    lien: "/methode-musique/adulte/lecon2",
+    lien: "/methode-musique/piano/adulte/lecon2", // 🌟 CORRIGÉ : pointe vers le nouveau dossier
     tag: "Technique"
   },
   {
@@ -27,7 +27,7 @@ const modules = [
     description: "Mets en pratique tes acquis sur une grille moderne avec une orchestration générée par IA.",
     duree: "25 min",
     niveau: "Intermédiaire",
-    lien: "#",
+    lien: "/methode-musique/piano/adulte/morceaux", // 🌟 CORRIGÉ : pointe vers tes morceaux de piano
     tag: "Pratique"
   }
 ];
@@ -43,8 +43,9 @@ const modules = [
 	<body>
 		<div class="layout-container">
 			<nav class="top-nav">
-				<a href="/methode-musique/" class="back-link">← Retour à l'accueil</a>
-				<span class="badge-status">Parcours Adulte</span>
+				<!-- 🌟 CORRIGÉ : ramène l'utilisateur au choix Enfant/Adulte pour le PIANO -->
+				<a href="/methode-musique/piano" class="back-link">← Changer de parcours (Piano)</a>
+				<span class="badge-status">Parcours Adulte 🎹</span>
 			</nav>
 
 			<main class="content">

@@ -6,9 +6,8 @@ Bienvenue dans le projet de plateforme d'apprentissage de la musique autonome, s
 
 ## 🚀 Lien du site (GitHub Pages)
 
-👉 **[Accéder à la plateforme de musique en ligne](https://TON-PSEUDO.github.io/nom-du-repo/)**
+👉 **[Accéder à la plateforme de musique en ligne](https://ouchinou.github.io/methode-musique.git/)**
 
-*(Remplace `TON-PSEUDO` par ton pseudo GitHub et `nom-du-repo` par le nom exact de ton dépôt pour que le lien fonctionne !)*
 
 ---
 
@@ -27,4 +26,4 @@ Si tu souhaites lancer le projet sur ta machine pour le modifier :
 
 1. Clone le projet :
    ```bash
-   git clone [https://github.com/TON-PSEUDO/nom-du-repo.git](https://github.com/TON-PSEUDO/nom-du-repo.git)
+   git clone [https://github.com/ouchinou/methode-musique.git](https://github.com/ouchinou/methode-musique.git)

@@ -1,6 +1,5 @@
 ---
-// Code serveur (exécuté à la compilation)
-const title = "Méthode de Musique Interactive";
+const title = "Studio Piano 🎹";
 ---
 
 <html lang="fr">
@@ -8,35 +7,36 @@ const title = "Méthode de Musique Interactive";
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
 	<body>
+		<a href="/methode-musique/" class="back-link">← Retour aux instruments</a>
+
 		<main class="welcome-container">
 			<header class="hero">
-				<span class="emoji">🎵</span>
+				<span class="emoji">🎹</span>
 				<h1>{title}</h1>
-				<p class="subtitle">Choisissez votre parcours pour commencer à jouer</p>
+				<p class="subtitle">Prêt à dompter les touches blanches et noires ? Choisis ton parcours !</p>
 			</header>
 
 			<div class="choices-grid">
 				<!-- Option Enfants -->
-				<a href="/methode-musique/enfant" class="card card-enfant">
+				<a href="/methode-musique/piano/enfant" class="card card-enfant">
 					<div class="card-content">
-						<span class="card-emoji">🎈</span>
+						<span class="card-emoji">🧸</span>
 						<h2>Parcours Enfants</h2>
-						<p>Apprendre en s'amusant avec des jeux de rythme et des leçons colorées !</p>
+						<p>Des mélodies magiques, des comptines et des jeux de couleurs sur le clavier !</p>
 						<span class="btn">C'est parti !</span>
 					</div>
 				</a>
 
 				<!-- Option Adultes -->
-				<a href="/methode-musique/adulte" class="card card-adulte">
+				<a href="/methode-musique/piano/adulte" class="card card-adulte">
 					<div class="card-content">
-						<span class="card-emoji">🎹</span>
+						<span class="card-emoji">✨</span>
 						<h2>Parcours Adultes</h2>
-						<p>Une méthode structurée, de la technique, du rythme et des morceaux avec accompagnement IA.</p>
-						<span class="btn">Découvrir la méthode</span>
+						<p>Une méthode de jeu intuitive, des bases d'accompagnement directes et de l'improvisation.</p>
+						<span class="btn">Découvrir le programme</span>
 					</div>
 				</a>
 			</div>
@@ -46,68 +46,53 @@ const title = "Méthode de Musique Interactive";
 
 <style>
 	:root {
-		--bg-dark: #121214;
-		--card-bg: #1e1e24;
-		--accent-enfant: #ff4081;
-		--accent-adulte: #4fc3f7;
+		--bg-dark: #0b0f19;
+		--card-bg: #111827;
+		--accent-enfant: #10b981; /* Vert dynamique */
+		--accent-adulte: #38bdf8; /* Bleu Piano */
 		--text-light: #ffffff;
-		--text-muted: #8a8a93;
+		--text-muted: #9ca3af;
 	}
 
-	* {
-		box-sizing: border-box;
-		margin: 0;
-		padding: 0;
-	}
+	* { box-sizing: border-box; margin: 0; padding: 0; }
 
 	body {
 		background-color: var(--bg-dark);
 		color: var(--text-light);
-		font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+		font-family: system-ui, -apple-system, sans-serif;
 		min-height: 100vh;
 		display: flex;
+		flex-direction: column;
 		align-items: center;
 		justify-content: center;
+		padding: 20px;
 	}
 
-	.welcome-container {
-		max-width: 900px;
-		width: 100%;
-		padding: 40px 20px;
-		text-align: center;
+	.back-link {
+		align-self: flex-start;
+		color: var(--text-muted);
+		text-decoration: none;
+		font-size: 0.95rem;
+		margin-bottom: 20px;
+		transition: color 0.2s;
 	}
+	.back-link:hover { color: var(--accent-adulte); }
 
-	.hero {
-		margin-bottom: 50px;
-	}
-
-	.emoji {
-		font-size: 4rem;
-		display: inline-block;
-		margin-bottom: 10px;
-		animation: bounce 2s infinite ease-in-out;
-	}
-
+	.welcome-container { max-width: 900px; width: 100%; text-align: center; }
+	.hero { margin-bottom: 40px; }
+	.emoji { font-size: 4rem; display: inline-block; margin-bottom: 10px; }
+	
 	h1 {
-		font-size: 2.8rem;
+		font-size: 2.5rem;
 		font-weight: 800;
 		margin-bottom: 15px;
-		background: linear-gradient(45deg, var(--accent-adulte), #b388ff);
+		background: linear-gradient(45deg, var(--accent-adulte), #ec4899);
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
 	}
 
-	.subtitle {
-		font-size: 1.2rem;
-		color: var(--text-muted);
-	}
-
-	.choices-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-		gap: 30px;
-		margin-top: 20px;
-	}
+	.subtitle { font-size: 1.1rem; color: var(--text-muted); }
+	.choices-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 20px; }
 
 	.card {
 		background-color: var(--card-bg);
@@ -115,77 +100,22 @@ const title = "Méthode de Musique Interactive";
 		text-decoration: none;
 		color: inherit;
 		overflow: hidden;
-		position: relative;
-		transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
-		border: 1px solid #2d2d38;
+		transition: transform 0.2s, box-shadow 0.2s;
+		border: 1px solid #1f2937;
 		display: flex;
 		flex-direction: column;
 		height: 100%;
 	}
+	.card:hover { transform: translateY(-4px); }
+	.card-enfant:hover { box-shadow: 0 10px 25px rgba(16, 185, 129, 0.15); border-color: var(--accent-enfant); }
+	.card-adulte:hover { box-shadow: 0 10px 25px rgba(56, 189, 248, 0.15); border-color: var(--accent-adulte); }
 
-	.card:hover {
-		transform: translateY(-8px);
-	}
-
-	.card-enfant:hover {
-		box-shadow: 0 15px 30px rgba(255, 64, 129, 0.2);
-		border-color: var(--accent-enfant);
-	}
-
-	.card-adulte:hover {
-		box-shadow: 0 15px 30px rgba(79, 195, 247, 0.2);
-		border-color: var(--accent-adulte);
-	}
-
-	.card-content {
-		padding: 40px 30px;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: space-between;
-		height: 100%;
-		gap: 15px;
-	}
-
-	.card-emoji {
-		font-size: 3rem;
-		margin-bottom: 10px;
-	}
-
-	h2 {
-		font-size: 1.6rem;
-		font-weight: 700;
-	}
-
-	p {
-		font-size: 1rem;
-		color: var(--text-muted);
-		line-height: 1.5;
-		margin-bottom: 15px;
-	}
-
-	.btn {
-		display: inline-block;
-		padding: 12px 24px;
-		border-radius: 25px;
-		font-weight: 700;
-		font-size: 0.95rem;
-		transition: background-color 0.2s, transform 0.1s;
-		width: 100%;
-	}
-
-	.card-enfant .btn {
-		background-color: var(--accent-enfant);
-		color: white;
-	}
-
-	.card-adulte .btn {
-		background-color: var(--accent-adulte);
-		color: #121214;
-	}
-
-	@keyframes bounce {
-		0%, 100% { transform: translateY(0); }
-		50% { transform: translateY(-10px); }
-	}
+	.card-content { padding: 40px 30px; display: flex; flex-direction: column; align-items: center; justify-content: space-between; height: 100%; gap: 15px; }
+	.card-emoji { font-size: 3rem; }
+	h2 { font-size: 1.5rem; font-weight: 700; }
+	p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 15px; }
+	
+	.btn { display: inline-block; padding: 12px 24px; border-radius: 25px; font-weight: 700; font-size: 0.95rem; width: 100%; text-align: center; }
+	.card-enfant .btn { background-color: var(--accent-enfant); color: #0b0f19; }
+	.card-adulte .btn { background-color: var(--accent-adulte); color: #0b0f19; }
 </style>

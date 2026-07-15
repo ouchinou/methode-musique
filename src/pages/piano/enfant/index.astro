@@ -1,32 +1,33 @@
 ---
-// Code serveur (exécuté à la compilation)
-const title = "Le Royaume de la Musique 🎈";
+const title = "L'Île aux Pianos 🌟";
 
-// Liste des leçons pour enfants
-const lecons = [
+const leçons = [
   {
     id: 1,
-    titre: "La maison des notes",
-    emoji: "🏠",
-    description: "Apprends à repérer le Do grâce aux touches noires !",
-    couleur: "card-jaune",
-    lien: "/methode-musique/enfant/lecon1"
+    titre: "La Maison des Notes",
+    description: "Apprends à retrouver le Do avec l'aide des deux touches noires et du petit chat !",
+    duree: "10 min",
+    badge: "Débutant",
+    lien: "/methode-musique/piano/enfant/lecon1", // 🌟 Lien mis à jour vers le piano enfant
+    emoji: "🐱"
   },
   {
     id: 2,
-    titre: "Le Géant et la Souris",
-    emoji: "🐘🐭",
-    description: "Joue avec la force et la vitesse de tes doigts.",
-    couleur: "card-bleu",
-    lien: "/methode-musique/enfant/lecon2"
+    titre: "La Ballade des Grenouilles",
+    description: "Fais sauter tes doigts d'une touche à l'autre sans jamais te presser.",
+    duree: "15 min",
+    badge: "Moyen",
+    lien: "/methode-musique/piano/enfant/lecon2", // 🌟 Lien mis à jour vers le piano enfant
+    emoji: "🐸"
   },
   {
     id: 3,
-    titre: "Bientôt disponible...",
-    emoji: "🌟",
-    description: "De nouvelles aventures musicales arrivent très vite !",
-    couleur: "card-gris",
-    lien: "#"
+    titre: "Le Rythme Magique",
+    description: "Joue une mélodie simple sur un rythme entraînant !",
+    duree: "15 min",
+    badge: "Rythme",
+    lien: "/methode-musique/piano/enfant/rythme", // 🌟 Lien vers rythme.astro dans piano/enfant
+    emoji: "🎶"
   }
 ];
 ---
@@ -39,197 +40,170 @@ const lecons = [
 		<title>{title}</title>
 	</head>
 	<body>
-		<!-- Bouton Retour Accueil -->
-		<a href="/methode-musique/" class="back-button">🏠 Retour à l'accueil</a>
+		<div class="layout-container">
+			<nav class="top-nav">
+				<a href="/methode-musique/piano" class="back-link">← Changer de parcours</a>
+				<span class="badge-status">Espace Enfants 🎈</span>
+			</nav>
 
-		<main class="kids-container">
-			<header class="header">
-				<span class="mascote animate-bounce">🦖</span>
-				<h1>Le Royaume de la Musique !</h1>
-				<p class="subtitle">Prêt pour ton voyage musical ? Choisis une carte magique !</p>
-			</header>
+			<main class="content">
+				<header class="hero">
+					<h1>Bienvenue sur l'Île aux Pianos !</h1>
+					<p class="subtitle">Ici, chaque touche raconte une histoire. Prêt à jouer ta première mélodie avec les animaux ?</p>
+				</header>
 
-			<div class="cards-grid">
-				{lecons.map((lecon) => (
-					<a href={lecon.lien} class={`kid-card ${lecon.couleur}`}>
-						<div class="card-badge">Étape {lecon.id}</div>
-						<span class="card-emoji">{lecon.emoji}</span>
-						<h2>{lecon.titre}</h2>
-						<p>{lecon.description}</p>
-						<span class="kid-btn">Jouer !</span>
-					</a>
-				))}
-			</div>
-		</main>
+				<section class="modules-list">
+					<h2>Tes Missions de Pianiste 🎹</h2>
+					<div class="grid">
+						{leçons.map((lecon) => (
+							<div class="module-card">
+								<div class="card-header">
+									<span class="module-number">Mission {lecon.id}</span>
+									<span class="emoji-indicator">{lecon.emoji}</span>
+								</div>
+								<div class="card-body">
+									<h3>{lecon.titre}</h3>
+									<p>{lecon.description}</p>
+								</div>
+								<div class="card-footer">
+									<div class="meta">
+										<span>⏱️ {lecon.duree}</span>
+										<span>🎨 {lecon.badge}</span>
+									</div>
+									<a href={lecon.lien} class="action-btn">Jouer !</a>
+								</div>
+							</div>
+						))}
+					</div>
+				</section>
+			</main>
+		</div>
 	</body>
 </html>
 
 <style>
 	:root {
-		--bg-kids: #fffae0;
-		--text-kids: #2c2a29;
-		--color-jaune: #ffd54f;
-		--color-bleu: #4fc3f7;
-		--color-rose: #ff4081;
-		--color-gris: #e0e0e0;
-		--shadow-color: rgba(0, 0, 0, 0.1);
+		--bg: #0b1329;
+		--card-bg: #1c2541;
+		--border: #3a506b;
+		--text: #ffffff;
+		--text-muted: #a5b1c2;
+		--accent-enfant: #10b981;
+		--accent-hover: #059669;
 	}
 
-	* {
-		box-sizing: border-box;
-		margin: 0;
-		padding: 0;
-	}
+	* { box-sizing: border-box; margin: 0; padding: 0; }
 
 	body {
-		background-color: var(--bg-kids);
-		color: var(--text-kids);
-		font-family: 'Comic Sans MS', 'Chalkboard SE', 'Segoe UI', sans-serif;
+		background-color: var(--bg);
+		color: var(--text);
+		font-family: 'Comic Sans MS', 'Inter', system-ui, sans-serif;
 		min-height: 100vh;
-		padding: 20px;
 	}
 
-	/* Bouton de retour rigolo */
-	.back-button {
-		display: inline-block;
-		text-decoration: none;
-		color: var(--text-kids);
-		background-color: white;
-		padding: 10px 20px;
-		border-radius: 50px;
-		font-weight: bold;
-		box-shadow: 0 4px 0 var(--shadow-color);
-		transition: transform 0.1s;
-		margin-bottom: 20px;
-		border: 2px solid var(--text-kids);
-	}
-	.back-button:active {
-		transform: translateY(4px);
-		box-shadow: none;
-	}
-
-	.kids-container {
-		max-width: 1000px;
+	.layout-container {
+		max-width: 900px;
 		margin: 0 auto;
-		text-align: center;
-		padding-bottom: 50px;
+		padding: 24px;
 	}
 
-	.header {
+	.top-nav {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
 		margin-bottom: 40px;
 	}
 
-	.mascote {
-		font-size: 5rem;
-		display: inline-block;
-		margin-bottom: 10px;
+	.back-link {
+		color: var(--text-muted);
+		text-decoration: none;
+		font-size: 1rem;
+		font-weight: bold;
+		transition: color 0.2s;
+	}
+	.back-link:hover { color: var(--accent-enfant); }
+
+	.badge-status {
+		background-color: rgba(16, 185, 129, 0.15);
+		color: var(--accent-enfant);
+		padding: 8px 16px;
+		border-radius: 9999px;
+		font-size: 0.9rem;
+		font-weight: 700;
 	}
 
+	.hero { margin-bottom: 40px; text-align: center; }
+	
 	h1 {
-		font-size: 2.5rem;
-		color: var(--color-rose);
-		text-shadow: 2px 2px 0px white, 4px 4px 0px var(--text-kids);
-		margin-bottom: 10px;
+		font-size: 2.3rem;
+		font-weight: 900;
+		margin-bottom: 15px;
+		color: #f472b6; /* Un joli rose doux pour le piano enfant */
+		text-shadow: 0 4px 6px rgba(0,0,0,0.2);
 	}
 
 	.subtitle {
-		font-size: 1.2rem;
-		font-weight: bold;
-		color: #5d4037;
-	}
-
-	/* Grille des leçons */
-	.cards-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-		gap: 30px;
-		padding: 10px;
-	}
-
-	/* Cartes de leçons */
-	.kid-card {
-		text-decoration: none;
-		color: var(--text-kids);
-		border-radius: 30px;
-		border: 3px solid var(--text-kids);
-		padding: 30px 20px;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: space-between;
-		position: relative;
-		transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-		box-shadow: 0 8px 0 var(--text-kids);
-		height: 380px;
-	}
-
-	.kid-card:hover {
-		transform: translateY(-8px) scale(1.02);
-	}
-
-	/* Badges d'étapes */
-	.card-badge {
-		position: absolute;
-		top: -15px;
-		background-color: var(--text-kids);
-		color: white;
-		padding: 5px 15px;
-		border-radius: 20px;
-		font-weight: bold;
-		font-size: 0.9rem;
-	}
-
-	/* Couleurs des cartes */
-	.card-jaune { background-color: var(--color-jaune); }
-	.card-bleu { background-color: var(--color-bleu); }
-	.card-gris { 
-		background-color: var(--color-gris);
-		opacity: 0.8;
-		pointer-events: none; /* Désactivé pour le moment */
-	}
-
-	.card-emoji {
-		font-size: 4rem;
-		margin-bottom: 15px;
+		font-size: 1.1rem;
+		color: var(--text-muted);
+		line-height: 1.5;
 	}
 
 	h2 {
 		font-size: 1.6rem;
-		margin-bottom: 10px;
+		font-weight: 800;
+		margin-bottom: 24px;
+		color: var(--accent-enfant);
 	}
 
-	p {
-		font-size: 1rem;
-		line-height: 1.4;
-		color: #4e4d4d;
-		flex-grow: 1;
-		margin-bottom: 20px;
+	.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px; }
+
+	.module-card {
+		background-color: var(--card-bg);
+		border: 3px solid var(--border);
+		border-radius: 24px;
+		padding: 24px;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		gap: 16px;
+		transition: transform 0.2s, border-color 0.2s;
+	}
+	.module-card:hover {
+		transform: scale(1.02);
+		border-color: var(--accent-enfant);
 	}
 
-	/* Gros boutons rigolos */
-	.kid-btn {
-		display: inline-block;
-		width: 100%;
-		background-color: white;
-		padding: 12px;
-		border-radius: 50px;
+	.card-header { display: flex; justify-content: space-between; align-items: center; }
+	.module-number { font-size: 0.85rem; font-weight: 800; color: #f472b6; text-transform: uppercase; }
+	.emoji-indicator { font-size: 2rem; }
+
+	h3 { font-size: 1.3rem; font-weight: 800; margin-bottom: 8px; }
+	.card-body p { color: var(--text-muted); line-height: 1.5; font-size: 0.95rem; }
+
+	.card-footer {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		border-top: 2px dashed var(--border);
+		padding-top: 16px;
+		margin-top: 10px;
+	}
+
+	.meta { display: flex; flex-direction: column; gap: 4px; font-size: 0.85rem; color: var(--text-muted); font-weight: bold; }
+
+	.action-btn {
+		background-color: var(--accent-enfant);
+		color: #0b1329;
+		padding: 10px 20px;
+		border-radius: 20px;
 		font-weight: 900;
-		font-size: 1.1rem;
-		border: 3px solid var(--text-kids);
-		box-shadow: 0 4px 0 var(--text-kids);
+		text-decoration: none;
+		font-size: 1rem;
+		box-shadow: 0 4px 0 #059669;
+		transition: transform 0.1s, box-shadow 0.1s;
 	}
-
-	.kid-card:active .kid-btn {
-		box-shadow: none;
-	}
-
-	/* Animation rebondissante */
-	.animate-bounce {
-		animation: bounce 2s infinite ease-in-out;
-	}
-
-	@keyframes bounce {
-		0%, 100% { transform: translateY(0); }
-		50% { transform: translateY(-15px); }
+	.action-btn:active {
+		transform: translateY(4px);
+		box-shadow: 0 0px 0 #059669;
 	}
 </style>
