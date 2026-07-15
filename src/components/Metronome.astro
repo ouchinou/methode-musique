@@ -1,0 +1,327 @@
+<div class="metronome-container">
+  <!-- Affichage et contrôle du BPM -->
+  <div class="bpm-display">
+    <span id="bpm-value">120</span>
+    <span class="bpm-unit">BPM</span>
+  </div>
+
+  <!-- Indicateur Visuel (Le Pendule / Flash) -->
+  <div class="visual-indicator">
+    <div id="beat-indicator" class="indicator-dot"></div>
+  </div>
+
+  <!-- Curseur de réglage du tempo -->
+  <div class="control-group">
+    <button class="tempo-btn" id="temp-minus" onclick="adjustBpm(-1)">-</button>
+    <input type="range" id="bpm-slider" min="40" max="220" value="120" oninput="updateBpm(this.value)">
+    <button class="tempo-btn" id="temp-plus" onclick="adjustBpm(1)">+</button>
+  </div>
+
+  <!-- Sélection de la mesure et bouton de lecture -->
+  <div class="footer-controls">
+    <div class="measure-selector">
+      <label for="beats-per-measure">Mesure :</label>
+      <select id="beats-per-measure" onchange="updateBeatsPerMeasure(this.value)">
+        <option value="2">2/4</option>
+        <option value="3">3/4</option>
+        <option value="4" selected>4/4</option>
+        <option value="6">6/8</option>
+      </select>
+    </div>
+
+    <button id="play-btn" class="play-button">Démarrer</button>
+  </div>
+</div>
+
+<style>
+  /* Style global du widget */
+  .metronome-container {
+    background: #1e1e24;
+    color: #ffffff;
+    padding: 24px;
+    border-radius: 16px;
+    max-width: 350px;
+    margin: 20px auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    text-align: center;
+  }
+
+  /* Affichage numérique */
+  .bpm-display {
+    margin-bottom: 10px;
+  }
+  #bpm-value {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: #4fc3f7;
+    display: inline-block;
+  }
+  .bpm-unit {
+    font-size: 1.2rem;
+    color: #8a8a93;
+    margin-left: 5px;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  /* Indicateur Visuel */
+  .visual-indicator {
+    height: 30px;
+    background: #121214;
+    border-radius: 20px;
+    margin: 15px 0 25px 0;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .indicator-dot {
+    width: 20px;
+    height: 20px;
+    background-color: #374151;
+    border-radius: 50%;
+    transition: transform 0.1s ease, background-color 0.1s ease;
+  }
+  /* Classes de flash appliquées par JS */
+  .indicator-dot.active-first {
+    background-color: #00e676; /* Vert pour le premier temps */
+    transform: scale(1.3);
+  }
+  .indicator-dot.active-other {
+    background-color: #29b6f6; /* Bleu pour les autres temps */
+    transform: scale(1.1);
+  }
+
+  /* Contrôles du curseur (Slider) */
+  .control-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 25px;
+    gap: 10px;
+  }
+  .tempo-btn {
+    background: #2d2d38;
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+  }
+  .tempo-btn:hover {
+    background: #4fc3f7;
+    color: #121214;
+  }
+  #bpm-slider {
+    flex-grow: 1;
+    height: 6px;
+    -webkit-appearance: none;
+    background: #3a3a4a;
+    border-radius: 3px;
+    outline: none;
+  }
+  #bpm-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #4fc3f7;
+    cursor: pointer;
+    transition: transform 0.1s;
+  }
+  #bpm-slider::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+  }
+
+  /* Footer & Bouton Play */
+  .footer-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+  }
+  .measure-selector {
+    text-align: left;
+    color: #8a8a93;
+    font-size: 0.9rem;
+  }
+  .measure-selector select {
+    background: #2d2d38;
+    color: white;
+    border: 1px solid #3a3a4a;
+    padding: 8px 12px;
+    border-radius: 8px;
+    margin-top: 5px;
+    cursor: pointer;
+    outline: none;
+  }
+  .play-button {
+    background: #00e676;
+    color: #121214;
+    border: none;
+    padding: 12px 28px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 15px rgba(0, 230, 118, 0.2);
+  }
+  .play-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 230, 118, 0.4);
+  }
+  .play-button.playing {
+    background: #ff1744;
+    color: white;
+    box-shadow: 0 4px 15px rgba(255, 23, 68, 0.2);
+  }
+</style>
+
+<script>
+  // --- MOTEUR AUDIO (Web Audio API) ---
+  let audioCtx = null;
+  let isPlaying = false;
+  let nextNoteTime = 0.0;     // À quel moment précis (en secondes) jouer la prochaine note
+  let timerID = null;         // ID de l'intervalle de planification
+  
+  // Paramètres du rythme
+  let bpm = 120;
+  let beatsPerMeasure = 4;    // Temps par mesure (ex: 4 pour un 4/4)
+  let currentBeat = 0;        // Compteur de temps actuel dans la mesure (0 à beatsPerMeasure - 1)
+  
+  const scheduleAheadTime = 0.1; // Durée de pré-planification (100ms)
+  const lookahead = 25.0;        // Fréquence de vérification du planificateur (toutes les 25ms)
+
+  // Éléments du DOM
+  const playBtn = document.getElementById('play-btn');
+  const bpmValue = document.getElementById('bpm-value');
+  const bpmSlider = document.getElementById('bpm-slider');
+  const indicator = document.getElementById('beat-indicator');
+
+  // Initialisation ou récupération du contexte Audio
+  function initAudio() {
+    if (!audioCtx) {
+      audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    }
+  }
+
+  // Planifie et joue un clic
+  function scheduleNote(beatNumber, time) {
+    const osc = audioCtx.createOscillator();
+    const gainNode = audioCtx.createGain();
+
+    osc.connect(gainNode);
+    gainNode.connect(audioCtx.destination);
+
+    // Différenciation sonore : Premier temps de la mesure plus aigu
+    if (beatNumber === 0) {
+      osc.frequency.value = 1000; // Son aigu
+      gainNode.gain.setValueAtTime(0.8, time);
+    } else {
+      osc.frequency.value = 800;  // Son médium
+      gainNode.gain.setValueAtTime(0.5, time);
+    }
+
+    // Enveloppe sonore très courte pour créer un "clic" net
+    gainNode.gain.exponentialRampToValueAtTime(0.001, time + 0.05);
+
+    osc.start(time);
+    osc.stop(time + 0.05);
+
+    // Planification de l'effet visuel synchrone
+    const delay = (time - audioCtx.currentTime) * 1000;
+    setTimeout(() => {
+      triggerVisualFlash(beatNumber);
+    }, Math.max(0, delay));
+  }
+
+  // Gère l'avancement du temps
+  function nextNote() {
+    const secondsPerBeat = 60.0 / bpm;
+    nextNoteTime += secondsPerBeat; // Ajoute la durée d'un temps
+    currentBeat = (currentBeat + 1) % beatsPerMeasure; // Passe au temps suivant
+  }
+
+  // Boucle de planification (scheduler)
+  function scheduler() {
+    while (nextNoteTime < audioCtx.currentTime + scheduleAheadTime) {
+      scheduleNote(currentBeat, nextNoteTime);
+      nextNote();
+    }
+    timerID = setTimeout(scheduler, lookahead);
+  }
+
+  // --- INTERACTION ET ÉVÉNEMENTS ---
+
+  // Déclenche le flash visuel coloré
+  function triggerVisualFlash(beatNumber) {
+    // On réinitialise l'état
+    indicator.className = "indicator-dot";
+    
+    // Force le navigateur à recalculer le style pour rejouer la transition
+    void indicator.offsetWidth; 
+    
+    if (beatNumber === 0) {
+      indicator.classList.add('active-first');
+    } else {
+      indicator.classList.add('active-other');
+    }
+  }
+
+  // Démarrer / Arrêter le métronome
+  function toggleMetronome() {
+    initAudio();
+    
+    // Reprendre le contexte si suspendu par le navigateur (sécurité autoplay)
+    if (audioCtx.state === 'suspended') {
+      audioCtx.resume();
+    }
+
+    isPlaying = !isPlaying;
+
+    if (isPlaying) {
+      currentBeat = 0;
+      nextNoteTime = audioCtx.currentTime + 0.05;
+      playBtn.textContent = 'Arrêter';
+      playBtn.classList.add('playing');
+      scheduler();
+    } else {
+      clearTimeout(timerID);
+      playBtn.textContent = 'Démarrer';
+      playBtn.classList.remove('playing');
+      indicator.className = "indicator-dot"; // Reset visuel
+    }
+  }
+
+  // Mettre à jour le BPM (via Slider ou Boutons)
+  function updateBpm(value) {
+    bpm = parseInt(value);
+    bpmValue.textContent = bpm;
+    bpmSlider.value = bpm;
+  }
+
+  function adjustBpm(amount) {
+    let newBpm = bpm + amount;
+    if (newBpm >= 40 && newBpm <= 220) {
+      updateBpm(newBpm);
+    }
+  }
+
+  // Mettre à jour la mesure (2/4, 3/4, 4/4...)
+  function updateBeatsPerMeasure(value) {
+    beatsPerMeasure = parseInt(value);
+    currentBeat = 0; // Réinitialise pour éviter les décalages de mesure à la volée
+  }
+
+  // Liaison du bouton Play
+  playBtn.addEventListener('click', toggleMetronome);
+</script>
