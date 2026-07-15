@@ -1,0 +1,192 @@
+---
+// src/layouts/LayoutEnfant.astro
+const { frontmatter } = Astro.props;
+---
+
+<html lang="fr">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>{frontmatter.title || "Mon Super Cours"}</title>
+	</head>
+	<body>
+		<div class="adventure-container">
+			<!-- Barre de navigation amusante pour l'enfant -->
+			<nav class="kid-nav">
+				<a href="javascript:history.back()" class="back-button">
+					<span class="arrow">⬅️</span> 
+					<span class="text">Retour au jardin</span>
+				</a>
+				<span class="badge-play">Zone de Jeu 🎈</span>
+			</nav>
+
+			<!-- Conteneur principal qui va recevoir le texte du fichier .md -->
+			<main class="kid-content">
+				<article class="paper-card">
+					<!-- C'est ICI qu'Astro va insérer tout le texte de ta leçon .md -->
+					<slot />
+				</article>
+			</main>
+
+			<!-- Un petit pied de page encourageant -->
+			<footer class="kid-footer">
+				<p>Tu as super bien travaillé aujourd'hui ! 🌟</p>
+			</footer>
+		</div>
+	</body>
+</html>
+
+<style is:global>
+	/* On utilise is:global pour que ces styles s'appliquent aussi aux balises HTML générées par le Markdown (.md) */
+	
+	:root {
+		--bg-adventure: #0f172a; /* Fond sombre doux intersidéral */
+		--card-white: #1e293b;   /* Arrière-plan des cartes */
+		--border-color: #38bdf8; /* Bordure magique bleue */
+		--text-kid: #f1f5f9;     /* Texte clair pour la lecture */
+		--text-muted: #94a3b8;
+		--accent-fun: #10b981;   /* Vert émeraude amusant */
+	}
+
+	* {
+		box-sizing: border-box;
+		margin: 0;
+		padding: 0;
+	}
+
+	body {
+		background-color: var(--bg-adventure);
+		color: var(--text-kid);
+		font-family: 'Comic Sans MS', 'Inter', system-ui, sans-serif; /* Police arrondie pour enfants */
+		min-height: 100vh;
+		padding: 20px;
+	}
+
+	.adventure-container {
+		max-width: 800px;
+		margin: 0 auto;
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+	}
+
+	/* Navigation */
+	.kid-nav {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 10px 0;
+	}
+
+	.back-button {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		text-decoration: none;
+		background: #334155;
+		padding: 10px 20px;
+		border-radius: 50px;
+		color: #ffffff;
+		font-weight: bold;
+		font-size: 0.95rem;
+		box-shadow: 0 4px 0 #1e293b;
+		transition: transform 0.1s, box-shadow 0.1s;
+	}
+
+	.back-button:active {
+		transform: translateY(4px);
+		box-shadow: 0 0px 0 #1e293b;
+	}
+
+	.badge-play {
+		background-color: rgba(16, 185, 129, 0.2);
+		color: var(--accent-fun);
+		border: 2px solid var(--accent-fun);
+		padding: 8px 16px;
+		border-radius: 20px;
+		font-weight: bold;
+		font-size: 0.9rem;
+	}
+
+	/* La carte magique du cours */
+	.paper-card {
+		background-color: var(--card-white);
+		border: 3px solid var(--border-color);
+		border-radius: 32px;
+		padding: 40px 30px;
+		box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+	}
+
+	/* --- STYLES DU TEXTE ISSU DU MARKDOWN (.md) --- */
+	
+	.kid-content h1 {
+		font-size: 2.2rem;
+		color: #38bdf8; /* Titre bleu magique */
+		text-align: center;
+		margin-bottom: 30px;
+		line-height: 1.3;
+	}
+
+	.kid-content h2 {
+		font-size: 1.6rem;
+		color: #f472b6; /* Sous-titre rose bonbon */
+		margin-top: 40px;
+		margin-bottom: 20px;
+		border-bottom: 3px dashed #334155;
+		padding-bottom: 8px;
+	}
+
+	.kid-content p {
+		font-size: 1.15rem;
+		line-height: 1.8;
+		margin-bottom: 20px;
+		color: #e2e8f0;
+	}
+
+	/* Listes à puces amusantes */
+	.kid-content ul, .kid-content ol {
+		margin-left: 30px;
+		margin-bottom: 25px;
+		display: flex;
+		flex-direction: column;
+		gap: 12px;
+	}
+
+	.kid-content li {
+		font-size: 1.1rem;
+		line-height: 1.6;
+	}
+
+	/* Les citations (utilisées pour les boîtes de conseils / défis) */
+	.kid-content blockquote {
+		background-color: rgba(16, 185, 129, 0.1);
+		border-left: 6px solid var(--accent-fun);
+		border-radius: 16px;
+		padding: 20px;
+		margin: 30px 0;
+	}
+
+	.kid-content blockquote p {
+		margin-bottom: 0;
+		color: #a7f3d0;
+		font-style: italic;
+	}
+
+	/* Les séparations horizontales (---) */
+	.kid-content hr {
+		border: none;
+		border-top: 4px dotted var(--border-color);
+		margin: 40px auto;
+		width: 50%;
+	}
+
+	/* Footer */
+	.kid-footer {
+		text-align: center;
+		padding: 20px 0;
+		font-size: 1.2rem;
+		font-weight: bold;
+		color: #f59e0b; /* Jaune doré */
+	}
+</style>

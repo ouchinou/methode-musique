@@ -1,0 +1,51 @@
+---
+// src/layouts/LayoutAdulte.astro
+const { frontmatter } = Astro.props;
+---
+
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{frontmatter.title}</title>
+  </head>
+  <body>
+    <!-- Une barre de navigation pour pouvoir revenir en arrière -->
+    <nav class="layout-nav">
+      <a href="/methode-musique/piano/adulte/">← Retour aux cours</a>
+    </nav>
+
+    <main class="layout-content">
+      <!-- ⚠️ C'EST CETTE BALISE QUI EST INDISPENSABLE ! -->
+      <slot /> 
+    </main>
+  </body>
+</html>
+
+<style>
+  body {
+    background-color: #0f172a;
+    color: #f8fafc;
+    font-family: system-ui, sans-serif;
+    padding: 40px 20px;
+  }
+  .layout-nav {
+    max-width: 800px;
+    margin: 0 auto 30px auto;
+  }
+  .layout-nav a {
+    color: #38bdf8;
+    text-decoration: none;
+  }
+  .layout-content {
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+  /* Styles pour le markdown imbriqué */
+  .layout-content h1 { font-size: 2.2rem; margin-bottom: 20px; color: #38bdf8; }
+  .layout-content h2 { font-size: 1.6rem; margin-top: 30px; margin-bottom: 15px; color: #f8fafc; }
+  .layout-content p { margin-bottom: 15px; }
+  .layout-content ul, .layout-content ol { margin-left: 20px; margin-bottom: 15px; }
+  .layout-content li { margin-bottom: 8px; }
+</style>
