@@ -1,0 +1,258 @@
+---
+// Code serveur (exécuté à la compilation)
+const title = "Parcours Adulte - Apprentissage Autonome";
+
+const modules = [
+  {
+    id: 1,
+    titre: "Les Fondations du Clavier",
+    description: "Repérage des notes, posture naturelle des mains et premier accord d'accompagnement.",
+    duree: "15 min",
+    niveau: "Débutant",
+    lien: "/methode-musique/adulte/lecon1",
+    tag: "Essentiel"
+  },
+  {
+    id: 2,
+    titre: "L'Indépendance des Mains & Le Rythme",
+    description: "Comment jouer un rythme simple à la main gauche pendant que la main droite joue la mélodie.",
+    duree: "20 min",
+    niveau: "Débutant",
+    lien: "/methode-musique/adulte/lecon2",
+    tag: "Technique"
+  },
+  {
+    id: 3,
+    titre: "Ton Premier Morceau avec l'IA",
+    description: "Mets en pratique tes acquis sur une grille moderne avec une orchestration générée par IA.",
+    duree: "25 min",
+    niveau: "Intermédiaire",
+    lien: "#",
+    tag: "Pratique"
+  }
+];
+---
+
+<html lang="fr">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<title>{title}</title>
+	</head>
+	<body>
+		<div class="layout-container">
+			<nav class="top-nav">
+				<a href="/methode-musique/" class="back-link">← Retour à l'accueil</a>
+				<span class="badge-status">Parcours Adulte</span>
+			</nav>
+
+			<main class="content">
+				<header class="hero">
+					<h1>Prenez le contrôle du clavier</h1>
+					<p class="subtitle">Une méthode directe, moderne, et sans théorie superflue pour jouer rapidement ce qui vous plaît.</p>
+				</header>
+
+				<section class="modules-list">
+					<h2>Votre plan d'entraînement</h2>
+					<div class="grid">
+						{modules.map((mod) => (
+							<div class="module-card">
+								<div class="card-header">
+									<span class="module-number">Module {mod.id}</span>
+									<span class={`tag ${mod.tag.toLowerCase()}`}>{mod.tag}</span>
+								</div>
+								<div class="card-body">
+									<h3>{mod.titre}</h3>
+									<p>{mod.description}</p>
+								</div>
+								<div class="card-footer">
+									<div class="meta">
+										<span>⏱️ {mod.duree}</span>
+										<span>📊 {mod.niveau}</span>
+									</div>
+									<a href={mod.lien} class="action-btn">Commencer</a>
+								</div>
+							</div>
+						))}
+					</div>
+				</section>
+			</main>
+		</div>
+	</body>
+</html>
+
+<style>
+	:root {
+		--bg: #0f172a;
+		--card-bg: #1e293b;
+		--border: #334155;
+		--text: #f8fafc;
+		--text-muted: #94a3b8;
+		--accent: #38bdf8;
+		--accent-hover: #0ea5e9;
+	}
+
+	* {
+		box-sizing: border-box;
+		margin: 0;
+		padding: 0;
+	}
+
+	body {
+		background-color: var(--bg);
+		color: var(--text);
+		font-family: system-ui, -apple-system, sans-serif;
+		min-height: 100vh;
+	}
+
+	.layout-container {
+		max-width: 1000px;
+		margin: 0 auto;
+		padding: 24px;
+	}
+
+	.top-nav {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom: 48px;
+	}
+
+	.back-link {
+		color: var(--text-muted);
+		text-decoration: none;
+		font-size: 0.95rem;
+		transition: color 0.2s;
+	}
+
+	.back-link:hover {
+		color: var(--accent);
+	}
+
+	.badge-status {
+		background-color: rgba(56, 189, 248, 0.1);
+		color: var(--accent);
+		padding: 6px 12px;
+		border-radius: 9999px;
+		font-size: 0.85rem;
+		font-weight: 600;
+	}
+
+	.hero {
+		margin-bottom: 48px;
+	}
+
+	h1 {
+		font-size: 2.5rem;
+		font-weight: 800;
+		letter-spacing: -0.025em;
+		margin-bottom: 12px;
+		background: linear-gradient(to right, #ffffff, var(--accent));
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+	}
+
+	.subtitle {
+		font-size: 1.125rem;
+		color: var(--text-muted);
+		max-width: 650px;
+		line-height: 1.6;
+	}
+
+	h2 {
+		font-size: 1.5rem;
+		font-weight: 700;
+		margin-bottom: 24px;
+	}
+
+	.grid {
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+	}
+
+	.module-card {
+		background-color: var(--card-bg);
+		border: 1px solid var(--border);
+		border-radius: 16px;
+		padding: 24px;
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+		transition: border-color 0.2s, transform 0.2s;
+	}
+
+	.module-card:hover {
+		border-color: var(--accent);
+		transform: translateY(-2px);
+	}
+
+	.card-header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.module-number {
+		font-size: 0.85rem;
+		font-weight: 700;
+		color: var(--accent);
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+	}
+
+	.tag {
+		font-size: 0.75rem;
+		padding: 4px 8px;
+		border-radius: 4px;
+		font-weight: 600;
+	}
+
+	.tag.essentiel { background: #1e3a8a; color: #60a5fa; }
+	.tag.technique { background: #371a79; color: #c084fc; }
+	.tag.pratique { background: #064e3b; color: #34d399; }
+
+	h3 {
+		font-size: 1.25rem;
+		font-weight: 700;
+		margin-bottom: 8px;
+	}
+
+	.card-body p {
+		color: var(--text-muted);
+		line-height: 1.5;
+		font-size: 0.95rem;
+	}
+
+	.card-footer {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		border-top: 1px solid var(--border);
+		padding-top: 16px;
+		margin-top: 8px;
+	}
+
+	.meta {
+		display: flex;
+		gap: 16px;
+		font-size: 0.85rem;
+		color: var(--text-muted);
+	}
+
+	.action-btn {
+		background-color: var(--accent);
+		color: #0f172a;
+		padding: 8px 18px;
+		border-radius: 8px;
+		font-weight: 600;
+		text-decoration: none;
+		font-size: 0.9rem;
+		transition: background-color 0.2s;
+	}
+
+	.action-btn:hover {
+		background-color: var(--accent-hover);
+	}
+</style>
