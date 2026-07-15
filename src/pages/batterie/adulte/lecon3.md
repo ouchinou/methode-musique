@@ -1,6 +1,8 @@
 ---
 layout: ../../../layouts/LayoutAdulte.astro
 title: "Module 3 : Le Rebond et les Croches"
+urlRetour: "/methode-musique/batterie/adulte/"
+labelRetour: "Retour aux cours de Batterie"
 ---
 
 # 🥁 Module 3 : Maîtriser le Rebond & Intégrer les Croches

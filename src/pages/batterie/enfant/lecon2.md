@@ -1,41 +1,68 @@
 ---
 layout: ../../../layouts/LayoutEnfant.astro
-title: "Leçon 2 : Le pas du Géant et de la Souris"
+title: "Leçon 2 : Mes premiers pas sur la batterie"
+urlRetour: "/methode-musique/batterie/enfant/"
+labelRetour: "Retour aux cours de Batterie"
 ---
 
-# 🐘 🐭 Leçon 2 : Le pas du Géant et de la Souris
+# 🥁 Leçon 2 : Mes premiers pas sur la batterie !
 
-En musique, on peut faire voyager les gens rien qu'avec le rythme et la force de nos doigts. Aujourd'hui, nous allons inviter deux animaux sur notre piano : le **Géant** et la **Souris**.
-
----
-
-## 1. Le pas lourd du Géant (Le rythme lent)
-
-Le géant est très grand et marche très lentement. À chaque fois qu'il pose un pied par terre, cela fait un bruit lourd et fort !
-
-*   **Comment jouer :** Choisis des touches très basses (tout à gauche de ton piano).
-*   **Le rythme :** Appuie sur une touche blanche, puis attends... 1... 2... 3... 4... puis appuie sur la suivante.
-*   **Le son :** Appuie fort pour faire un son puissant (mais sans taper comme une brute !).
+Dans la leçon 1, tu as appris comment tenir tes baguettes et comment taper sur la caisse claire. Aujourd'hui, nous allons découvrir un nouvel élément très important de la batterie et apprendre à jouer notre tout premier rythme en utilisant deux éléments différents !
 
 ---
 
-## 2. Le pas pressé de la Souris (Le rythme rapide)
+## 1. À la découverte de la Cymbale Charleston (Hi-Hat)
 
-La petite souris, elle, court partout très vite et ne fait presque aucun bruit avec ses petites pattes !
+Regarde à ta gauche : tu as deux cymbales posées l'une sur l'autre avec une pédale en bas. C'est la **cymbale charleston** (ou *Hi-Hat* en anglais).
 
-*   **Comment jouer :** Choisis des touches très hautes (tout à droite de ton piano).
-*   **Le rythme :** Tapote les touches très rapidement l'une après l'autre.
-*   **Le son :** Appuie tout doucement pour faire un son très léger et mystérieux.
+*   **Comment on la joue ?** On tape sur le dessus avec l'olive (le bout) de la baguette droite.
+*   **Le savais-tu ?** Pour le moment, nous allons laisser le pied gauche posé sur la pédale pour garder les cymbales bien fermées. Cela produit un son court et sec : *« tchic, tchic, tchic »*.
 
 ---
 
-## 🏆 Le jeu du chef d'orchestre (Jeu interactif)
+## 2. L'exercice de coordination (La Caisse Claire et le Charleston)
 
-Lance la musique ci-dessous. 
-*   Quand tu entends les **tambours lourds**, joue comme le **Géant** sur les touches de gauche.
-*   Quand tu entends les **petites clochettes**, joue comme la **Souris** sur les touches de droite !
+Nous allons maintenant apprendre à faire travailler nos deux mains ensemble, mais pas en même temps ! 
 
-<!-- Ici, on intégrera une piste audio générée par IA alternant un rythme lourd et des tintements légers -->
-<audio controls src="/audio/enfant-geant-souris.mp3" style="width: 100%; margin: 15px 0;"></audio>
+Prends tes deux baguettes :
+*   Ta **main droite** va taper sur la **cymbale charleston**.
+*   Ta **main gauche** va taper sur la **caisse claire** (le tambour au milieu).
 
-> **Le savais-tu ?** En vrai langage de musicien, jouer fort comme le Géant s'appelle jouer **Forte**, et jouer doucement comme la Souris s'appelle jouer **Piano** !
+### Exercice 1 : L'alternance
+On va compter jusqu'à 4 dans notre tête, bien régulièrement (comme les secondes d'une montre) :
+
+**1 - 2 - 3 - 4**
+
+*   Sur le **1** : Tape sur le **Charleston** (main droite).
+*   Sur le **2** : Tape sur la **Caisse Claire** (main gauche).
+*   Sur le **3** : Tape sur le **Charleston** (main droite).
+*   Sur le **4** : Tape sur la **Caisse Claire** (main gauche).
+
+> 💡 **Le conseil du prof :** Recommence plusieurs fois d'affilée en essayant d'être le plus régulier possible. *Charleston (1) -> Caisse claire (2) -> Charleston (3) -> Caisse claire (4)...*
+
+---
+
+## 3. Ton premier rythme de "Rock" simplifié !
+
+Maintenant que tes mains se déplacent bien, nous allons corser un tout petit peu les choses. Cette fois-ci, ta main droite va taper **tout le temps** sur le Charleston, et ta main gauche va venir l'aider sur la caisse claire.
+
+Chaque ligne correspond à un instrument :
+
+| Instrument / Temps | 1 | 2 | 3 | 4 |
+| :--- | :---: | :---: | :---: | :---: |
+| **Charleston** (Main Droite) | 🥁 | 🥁 | 🥁 | 🥁 |
+| **Caisse Claire** (Main Gauche) | | 🥁 | | 🥁 |
+
+### Comment faire ?
+1.  **Sur le 1 :** Tu tapes **uniquement** sur le **Charleston**.
+2.  **Sur le 2 :** Tu tapes sur le **Charleston ET la Caisse Claire en même temps** ! (Les deux baguettes tombent ensemble).
+3.  **Sur le 3 :** Tu tapes **uniquement** sur le **Charleston**.
+4.  **Sur le 4 :** Tu tapes sur le **Charleston ET la Caisse Claire en même temps** !
+
+---
+
+## 🏆 Le défi de la Leçon 2 !
+
+Laisses-toi guider par le rythme ! Essaie de jouer ce rythme en boucle **10 fois d'affilée** sans t'arrêter et sans te tromper. 
+
+*Commence très lentement ! Le secret pour devenir un super batteur, c'est de jouer régulièrement, même si c'est doucement.*

@@ -1,6 +1,10 @@
 ---
 // src/layouts/LayoutAdulte.astro
 const { frontmatter } = Astro.props;
+
+// On récupère les variables du Markdown ou on met des valeurs par défaut
+const urlRetour = frontmatter.urlRetour || "/methode-musique/";
+const labelRetour = frontmatter.labelRetour || "Retour aux cours";
 ---
 
 <html lang="fr">
@@ -10,13 +14,12 @@ const { frontmatter } = Astro.props;
     <title>{frontmatter.title}</title>
   </head>
   <body>
-    <!-- Une barre de navigation pour pouvoir revenir en arrière -->
     <nav class="layout-nav">
-      <a href="/methode-musique/piano/adulte/">← Retour aux cours</a>
+      <!-- Le lien et le texte s'adaptent tout seuls ! -->
+      <a href={urlRetour}>← {labelRetour}</a>
     </nav>
 
     <main class="layout-content">
-      <!-- ⚠️ C'EST CETTE BALISE QUI EST INDISPENSABLE ! -->
       <slot /> 
     </main>
   </body>

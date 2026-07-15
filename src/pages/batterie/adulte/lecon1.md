@@ -1,6 +1,8 @@
 ---
 layout: ../../../layouts/LayoutAdulte.astro
 title: "Module 1 : Votre Premier Groove"
+urlRetour: "/methode-musique/batterie/adulte/"
+labelRetour: "Retour aux cours de Batterie"
 ---
 
 # 🥁 Module 1 : Votre Premier Groove & Prise en Main

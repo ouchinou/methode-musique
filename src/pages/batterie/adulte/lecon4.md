@@ -1,6 +1,8 @@
 ---
 layout: ../../../layouts/LayoutAdulte.astro
 title: "Module 4 : Le Frisé et l'indépendance du Pied"
+urlRetour: "/methode-musique/batterie/adulte/"
+labelRetour: "Retour aux cours de Batterie"
 ---
 
 # 🥁 Module 4 : Le Frisé & l'Indépendance du Pied Droit

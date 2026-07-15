@@ -1,6 +1,8 @@
 ---
 layout: ../../../layouts/LayoutEnfant.astro
 title: "Leçon 2 : Le pas du Géant et de la Souris"
+urlRetour: "/methode-musique/piano/enfant/"
+labelRetour: "Retour aux cours de Piano"
 ---
 
 # 🐘 🐭 Leçon 2 : Le pas du Géant et de la Souris

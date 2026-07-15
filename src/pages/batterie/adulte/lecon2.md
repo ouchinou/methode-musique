@@ -1,6 +1,8 @@
 ---
 layout: ../../../layouts/LayoutAdulte.astro
 title: "Module 2 : L'Indépendance des Mains"
+urlRetour: "/methode-musique/batterie/adulte/"
+labelRetour: "Retour aux cours de Batterie"
 ---
 
 # 🧠 Module 2 : Développer l'Indépendance des Mains

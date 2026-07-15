@@ -1,6 +1,8 @@
 ---
 layout: ../../../layouts/LayoutEnfant.astro
 title: "Batterie Leçon 1 : Le Concert des Animaux !"
+urlRetour: "/methode-musique/batterie/enfant/"
+labelRetour: "Retour aux cours de Batterie"
 ---
 
 # 🦁 🐒 Batterie Leçon 1 : Le Concert de la Jungle !

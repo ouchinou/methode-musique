@@ -1,6 +1,8 @@
 ---
 layout: ../../../layouts/LayoutEnfant.astro
 title: "Leçon 1 : Trouve la maison des notes !"
+urlRetour: "/methode-musique/piano/enfant/"
+labelRetour: "Retour aux cours de Piano"
 ---
 
 # 🏠 Leçon 1 : Trouve la maison des notes !

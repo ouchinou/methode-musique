@@ -1,6 +1,8 @@
 ---
 layout: ../../../layouts/LayoutAdulte.astro
 title: "Module 1 : Les Fondations du Clavier"
+urlRetour: "/methode-musique/piano/adulte/"
+labelRetour: "Retour aux cours de Piano"
 ---
 
 # 🎹 Module 1 : Les Fondations du Clavier & Premier Accord

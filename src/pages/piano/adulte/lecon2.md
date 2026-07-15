@@ -1,6 +1,8 @@
 ---
 layout: ../../../layouts/LayoutAdulte.astro
 title: "Module 2 : L'Indépendance des Mains"
+urlRetour: "/methode-musique/piano/adulte/"
+labelRetour: "Retour aux cours de Piano"
 ---
 
 # 🧠 Module 2 : Développer l'Indépendance des Mains
