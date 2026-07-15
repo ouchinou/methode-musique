@@ -1,5 +1,5 @@
 ---
-layout: "../../../layouts/LayoutEnfant.astro"
+layout: "@/layouts/LayoutEnfant.astro"
 title: "Leçon 1 : L'alignement et le relâchement des tensions"
 urlRetour: "/chant/enfant/"
 labelRetour: "Retour au cursus Chant Enfants"

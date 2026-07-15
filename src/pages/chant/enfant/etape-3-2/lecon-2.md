@@ -1,5 +1,5 @@
 ---
-layout: "../../../layouts/LayoutEnfant.astro"
+layout: "@/layouts/LayoutEnfant.astro"
 title: "Leçon 2 : Ajouter de la voix sur la retenue"
 urlRetour: "/chant/enfant/"
 labelRetour: "Retour au cursus Chant Enfants"

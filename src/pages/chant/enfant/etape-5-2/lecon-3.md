@@ -1,5 +1,5 @@
 ---
-layout: "../../../layouts/LayoutEnfant.astro"
+layout: "@/layouts/LayoutEnfant.astro"
 title: "Leçon 3 : Les transitions rapides"
 urlRetour: "/chant/enfant/"
 labelRetour: "Retour au cursus Chant Enfants"

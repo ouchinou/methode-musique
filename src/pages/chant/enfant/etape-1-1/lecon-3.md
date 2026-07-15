@@ -1,5 +1,5 @@
 ---
-layout: "../../../layouts/LayoutEnfant.astro"
+layout: "@/layouts/LayoutEnfant.astro"
 title: "Leçon 3 : La gestion du stress physique"
 urlRetour: "/chant/enfant/"
 labelRetour: "Retour au cursus Chant Enfants"

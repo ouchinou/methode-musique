@@ -1,5 +1,5 @@
 ---
-layout: "../../../layouts/LayoutAdulte.astro"
+layout: "@/layouts/LayoutAdulte.astro"
 title: "Leçon 3 : Connecter la respiration à l'effort"
 urlRetour: "/chant/adulte/"
 labelRetour: "Retour au cursus Chant Adultes"

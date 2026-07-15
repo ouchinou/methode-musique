@@ -1,5 +1,5 @@
 ---
-layout: "../../../layouts/LayoutAdulte.astro"
+layout: "@/layouts/LayoutAdulte.astro"
 title: "Leçon 3 : Projeter sa voix de poitrine"
 urlRetour: "/chant/adulte/"
 labelRetour: "Retour au cursus Chant Adultes"

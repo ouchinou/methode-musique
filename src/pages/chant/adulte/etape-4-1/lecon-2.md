@@ -1,5 +1,5 @@
 ---
-layout: "../../../layouts/LayoutAdulte.astro"
+layout: "@/layouts/LayoutAdulte.astro"
 title: "Leçon 2 : La distorsion par résonance"
 urlRetour: "/chant/adulte/"
 labelRetour: "Retour au cursus Chant Adultes"

@@ -1,5 +1,5 @@
 ---
-layout: "../../../layouts/LayoutEnfant.astro"
+layout: "@/layouts/LayoutEnfant.astro"
 title: "Leçon 3 : Le réflexe de détente de l'inspiration"
 urlRetour: "/chant/enfant/"
 labelRetour: "Retour au cursus Chant Enfants"

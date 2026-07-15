@@ -1,5 +1,5 @@
 ---
-layout: "../../../layouts/LayoutEnfant.astro"
+layout: "@/layouts/LayoutEnfant.astro"
 title: "Leçon 3 : Connecter la respiration à l'effort"
 urlRetour: "/chant/enfant/"
 labelRetour: "Retour au cursus Chant Enfants"

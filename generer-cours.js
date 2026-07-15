@@ -160,12 +160,14 @@ const configurationChant = {
 const tranchesAge = [
   {
     cle: "adulte",
-    layout: "../../../layouts/LayoutAdulte.astro",
+    // Remplace "../../../layouts/LayoutAdulte.astro" par ceci :
+    layout: "@/layouts/LayoutAdulte.astro",
     dossierBase: "src/pages"
   },
   {
     cle: "enfant",
-    layout: "../../../layouts/LayoutEnfant.astro",
+    // Remplace "../../../layouts/LayoutEnfant.astro" par ceci :
+    layout: "@/layouts/LayoutEnfant.astro",
     dossierBase: "src/pages"
   }
 ];

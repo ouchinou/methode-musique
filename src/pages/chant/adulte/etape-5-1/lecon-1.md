@@ -1,5 +1,5 @@
 ---
-layout: "../../../layouts/LayoutAdulte.astro"
+layout: "@/layouts/LayoutAdulte.astro"
 title: "Leçon 1 : Le ratio clair et saturé"
 urlRetour: "/chant/adulte/"
 labelRetour: "Retour au cursus Chant Adultes"

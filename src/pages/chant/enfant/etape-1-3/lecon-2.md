@@ -1,5 +1,5 @@
 ---
-layout: "../../../layouts/LayoutEnfant.astro"
+layout: "@/layouts/LayoutEnfant.astro"
 title: "Leçon 2 : L'exercice du ballon qui se dégonfle"
 urlRetour: "/chant/enfant/"
 labelRetour: "Retour au cursus Chant Enfants"

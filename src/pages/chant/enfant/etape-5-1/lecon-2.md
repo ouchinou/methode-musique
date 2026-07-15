@@ -1,5 +1,5 @@
 ---
-layout: "../../../layouts/LayoutEnfant.astro"
+layout: "@/layouts/LayoutEnfant.astro"
 title: "Leçon 2 : Stabiliser le mélange"
 urlRetour: "/chant/enfant/"
 labelRetour: "Retour au cursus Chant Enfants"

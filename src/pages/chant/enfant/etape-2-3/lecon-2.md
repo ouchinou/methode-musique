@@ -1,5 +1,5 @@
 ---
-layout: "../../../layouts/LayoutEnfant.astro"
+layout: "@/layouts/LayoutEnfant.astro"
 title: "Leçon 2 : Le pont vocal"
 urlRetour: "/chant/enfant/"
 labelRetour: "Retour au cursus Chant Enfants"

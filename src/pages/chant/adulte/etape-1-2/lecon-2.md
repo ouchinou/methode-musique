@@ -1,5 +1,5 @@
 ---
-layout: "../../../layouts/LayoutAdulte.astro"
+layout: "@/layouts/LayoutAdulte.astro"
 title: "Leçon 2 : L'exercice de la bougie"
 urlRetour: "/chant/adulte/"
 labelRetour: "Retour au cursus Chant Adultes"

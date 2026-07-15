@@ -1,5 +1,5 @@
 ---
-layout: "../../../layouts/LayoutEnfant.astro"
+layout: "@/layouts/LayoutEnfant.astro"
 title: "Leçon 1 : Activer la ceinture abdominale"
 urlRetour: "/chant/enfant/"
 labelRetour: "Retour au cursus Chant Enfants"

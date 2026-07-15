@@ -1,5 +1,5 @@
 ---
-layout: "../../../layouts/LayoutAdulte.astro"
+layout: "@/layouts/LayoutAdulte.astro"
 title: "Leçon 3 : Le réflexe de détente de l'inspiration"
 urlRetour: "/chant/adulte/"
 labelRetour: "Retour au cursus Chant Adultes"

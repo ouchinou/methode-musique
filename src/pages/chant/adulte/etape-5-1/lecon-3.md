@@ -1,5 +1,5 @@
 ---
-layout: "../../../layouts/LayoutAdulte.astro"
+layout: "@/layouts/LayoutAdulte.astro"
 title: "Leçon 3 : L'endurance sur un morceau"
 urlRetour: "/chant/adulte/"
 labelRetour: "Retour au cursus Chant Adultes"

@@ -1,5 +1,5 @@
 ---
-layout: "../../../layouts/LayoutEnfant.astro"
+layout: "@/layouts/LayoutEnfant.astro"
 title: "Leçon 3 : Le positionnement de la mâchoire"
 urlRetour: "/chant/enfant/"
 labelRetour: "Retour au cursus Chant Enfants"

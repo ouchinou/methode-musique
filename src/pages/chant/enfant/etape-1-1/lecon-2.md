@@ -1,5 +1,5 @@
 ---
-layout: "../../../layouts/LayoutEnfant.astro"
+layout: "@/layouts/LayoutEnfant.astro"
 title: "Leçon 2 : L'ouverture thoracique et stabilité des épaules"
 urlRetour: "/chant/enfant/"
 labelRetour: "Retour au cursus Chant Enfants"

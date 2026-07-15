@@ -1,5 +1,5 @@
 ---
-layout: "../../../layouts/LayoutAdulte.astro"
+layout: "@/layouts/LayoutAdulte.astro"
 title: "Leçon 3 : Nettoyer le fry"
 urlRetour: "/chant/adulte/"
 labelRetour: "Retour au cursus Chant Adultes"
