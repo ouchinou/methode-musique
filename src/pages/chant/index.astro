@@ -1,0 +1,153 @@
+---
+// src/pages/chant/adulte/index.astro
+// On va chercher récursivement tous les fichiers .md dans les sous-dossiers d'étapes
+const toutesLesLecons = await Astro.glob('./**/*.md');
+
+// Structure pour regrouper les leçons par étapes
+const etapesMap = {};
+
+toutesLesLecons.forEach(lecon => {
+  // On extrait le code de l'étape depuis le chemin du fichier (ex: etape-1-1)
+  const segments = lecon.file.split('/');
+  const codeEtape = segments[segments.length - 2]; 
+
+  if (!etapesMap[codeEtape]) {
+    etapesMap[codeEtape] = {
+      code: codeEtape,
+      titre: lecon.frontmatter.title ? lecon.frontmatter.title.split(' : ')[0] : "Étape",
+      // On extrait la phase depuis le contenu si besoin, ou on fait simple :
+      lecons: []
+    };
+  }
+  etapesMap[codeEtape].lecons.push(lecon);
+});
+
+// Tri des leçons à l'intérieur de chaque étape (lecon-1, lecon-2...)
+Object.values(etapesMap).forEach(etape => {
+  etape.lecons.sort((a, b) => a.url.localeCompare(b.url));
+});
+
+// Tri des étapes (etape-1-1, etape-1-2...)
+const etapesTriees = Object.values(etapesMap).sort((a, b) => a.code.localeCompare(b.code));
+---
+
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Cursus de Chant Extrême - Adultes</title>
+  </head>
+  <body>
+    <main class="hub-container">
+      <nav><a href="/">← Retour à l'accueil</a></nav>
+      
+      <h1>🎤 Cursus Vocal & Saturation (Adultes)</h1>
+      <p class="intro">Des fondations de la respiration jusqu'au Fry, Growl et False Chord.</p>
+
+      <div class="tree-container">
+        {etapesTriees.map((etape) => (
+          <section class="etape-section">
+            <div class="etape-header">
+              <span class="stage-badge">{etape.code.toUpperCase().replace('ETAPE-', 'Étape ')}</span>
+              <h2>{etape.lecons[0]?.frontmatter.labelRetour.replace('Retour au cursus ', '') || "Étape de travail"}</h2>
+            </div>
+            
+            <div class="lecons-grid">
+              {etape.lecons.map((lecon) => (
+                <a href={lecon.url} class="lecon-link">
+                  <div class="lecon-number">Leçon {lecon.frontmatter.title.match(/Leçon (\d+)/)?.[1] || "•"}</div>
+                  <div class="lecon-name">{lecon.frontmatter.title.split(' : ')[1] || "Cours"}</div>
+                </a>
+              ))}
+            </div>
+          </section>
+        ))}
+      </div>
+    </main>
+  </body>
+</html>
+
+<style>
+  body {
+    background-color: #0f172a;
+    color: #f8fafc;
+    font-family: system-ui, sans-serif;
+    padding: 40px 20px;
+  }
+  .hub-container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  nav a {
+    color: #38bdf8;
+    text-decoration: none;
+  }
+  h1 {
+    font-size: 2.2rem;
+    color: #38bdf8;
+    margin-top: 20px;
+  }
+  .intro {
+    color: #94a3b8;
+    margin-bottom: 40px;
+  }
+  .tree-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+  .etape-section {
+    background-color: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 10px;
+    padding: 20px;
+  }
+  .etape-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border-bottom: 1px solid #334155;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+  }
+  .stage-badge {
+    background-color: #38bdf8;
+    color: #0f172a;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+  }
+  .etape-header h2 {
+    margin: 0;
+    font-size: 1.25rem;
+  }
+  .lecons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+  }
+  .lecon-link {
+    background-color: #0f172a;
+    border: 1px solid #334155;
+    border-radius: 6px;
+    padding: 15px;
+    text-decoration: none;
+    color: inherit;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .lecon-link:hover {
+    border-color: #38bdf8;
+    transform: translateY(-2px);
+  }
+  .lecon-number {
+    color: #38bdf8;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+  }
+  .lecon-name {
+    font-size: 0.95rem;
+    font-weight: 500;
+  }
+</style>
