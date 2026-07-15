@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/LayoutAdulte.astro
+layout: ../../../layouts/LayoutAdulte.astro
 title: "Module 2 : L'Indépendance des Mains"
 ---
 

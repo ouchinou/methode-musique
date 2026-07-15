@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/LayoutEnfant.astro
+layout: ../../../layouts/LayoutEnfant.astro
 title: "Leçon 2 : Le pas du Géant et de la Souris"
 ---
 

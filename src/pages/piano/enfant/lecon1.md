@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/LayoutEnfant.astro
+layout: ../../../layouts/LayoutEnfant.astro
 title: "Leçon 1 : Trouve la maison des notes !"
 ---
 
