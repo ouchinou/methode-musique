@@ -7,8 +7,6 @@ title: "Module 1 : Les Fondations du Clavier"
 
 L'objectif de cette session est de vous repérer instantanément sur les 88 touches du clavier et de jouer votre premier accord d'accompagnement.
 
----
-
 ## 🔍 Étape 1 : Le repérage structurel
 
 Le clavier n'est pas un bloc uniforme. Il est structuré autour d'une alternance de **groupes de 2 touches noires** et de **groupes de 3 touches noires**.
