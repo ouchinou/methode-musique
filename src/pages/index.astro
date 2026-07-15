@@ -1,6 +1,5 @@
 ---
-// Code serveur (exécuté à la compilation)
-const title = "Méthode de Musique Interactive";
+const title = "Méthode de Musique Moderne";
 ---
 
 <html lang="fr">
@@ -8,50 +7,48 @@ const title = "Méthode de Musique Interactive";
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
 	<body>
-		<main class="welcome-container">
+		<div class="layout-container">
 			<header class="hero">
-				<span class="emoji">🎵</span>
-				<h1>{title}</h1>
-				<p class="subtitle">Choisissez votre parcours pour commencer à jouer</p>
+				<h1>Quelle discipline voulez-vous maîtriser ?</h1>
+				<p class="subtitle">Choisissez votre instrument et commencez votre apprentissage autonome dès aujourd'hui.</p>
 			</header>
 
-			<div class="choices-grid">
-				<!-- Option Enfants -->
-				<a href="/methode-musique/enfant" class="card card-enfant">
+			<main class="instruments-grid">
+				<!-- Carte Piano -->
+				<a href="/methode-musique/piano" class="instrument-card piano">
+					<div class="card-overlay"></div>
 					<div class="card-content">
-						<span class="card-emoji">🎈</span>
-						<h2>Parcours Enfants</h2>
-						<p>Apprendre en s'amusant avec des jeux de rythme et des leçons colorées !</p>
-						<span class="btn">C'est parti !</span>
+						<span class="emoji">🎹</span>
+						<h2>Piano</h2>
+						<p>Maîtrisez l'harmonie, les accords et l'indépendance mélodique.</p>
+						<span class="start-link">Entrer dans le studio →</span>
 					</div>
 				</a>
 
-				<!-- Option Adultes -->
-				<a href="/methode-musique/adulte" class="card card-adulte">
+				<!-- Carte Batterie -->
+				<a href="/methode-musique/batterie" class="instrument-card batterie">
+					<div class="card-overlay"></div>
 					<div class="card-content">
-						<span class="card-emoji">🎹</span>
-						<h2>Parcours Adultes</h2>
-						<p>Une méthode structurée, de la technique, du rythme et des morceaux avec accompagnement IA.</p>
-						<span class="btn">Découvrir la méthode</span>
+						<span class="emoji">🥁</span>
+						<h2>Batterie</h2>
+						<p>Développez votre rythme, votre coordination physique et votre groove.</p>
+						<span class="start-link">Entrer dans le studio →</span>
 					</div>
 				</a>
-			</div>
-		</main>
+			</main>
+		</div>
 	</body>
 </html>
 
 <style>
 	:root {
-		--bg-dark: #121214;
-		--card-bg: #1e1e24;
-		--accent-enfant: #ff4081;
-		--accent-adulte: #4fc3f7;
-		--text-light: #ffffff;
-		--text-muted: #8a8a93;
+		--bg: #090d16;
+		--text: #f8fafc;
+		--text-muted: #94a3b8;
+		--border: #1e293b;
 	}
 
 	* {
@@ -61,131 +58,110 @@ const title = "Méthode de Musique Interactive";
 	}
 
 	body {
-		background-color: var(--bg-dark);
-		color: var(--text-light);
-		font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+		background-color: var(--bg);
+		color: var(--text);
+		font-family: system-ui, -apple-system, sans-serif;
 		min-height: 100vh;
 		display: flex;
 		align-items: center;
 		justify-content: center;
 	}
 
-	.welcome-container {
+	.layout-container {
 		max-width: 900px;
 		width: 100%;
-		padding: 40px 20px;
-		text-align: center;
+		padding: 40px 24px;
 	}
 
 	.hero {
-		margin-bottom: 50px;
-	}
-
-	.emoji {
-		font-size: 4rem;
-		display: inline-block;
-		margin-bottom: 10px;
-		animation: bounce 2s infinite ease-in-out;
+		text-align: center;
+		margin-bottom: 48px;
 	}
 
 	h1 {
-		font-size: 2.8rem;
+		font-size: 2.5rem;
 		font-weight: 800;
-		margin-bottom: 15px;
-		background: linear-gradient(45deg, var(--accent-adulte), #b388ff);
+		letter-spacing: -0.025em;
+		margin-bottom: 16px;
+		background: linear-gradient(to right, #ffffff, #94a3b8);
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
 	}
 
 	.subtitle {
-		font-size: 1.2rem;
+		font-size: 1.125rem;
 		color: var(--text-muted);
+		max-width: 600px;
+		margin: 0 auto;
+		line-height: 1.6;
 	}
 
-	.choices-grid {
+	.instruments-grid {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-		gap: 30px;
-		margin-top: 20px;
+		grid-template-columns: 1fr;
+		gap: 24px;
 	}
 
-	.card {
-		background-color: var(--card-bg);
-		border-radius: 20px;
-		text-decoration: none;
-		color: inherit;
-		overflow: hidden;
+	@media (min-width: 640px) {
+		.instruments-grid {
+			grid-template-columns: 1fr 1fr;
+		}
+	}
+
+	.instrument-card {
 		position: relative;
-		transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
-		border: 1px solid #2d2d38;
-		display: flex;
-		flex-direction: column;
-		height: 100%;
+		background-color: #111827;
+		border: 1px solid var(--border);
+		border-radius: 20px;
+		padding: 40px 32px;
+		text-decoration: none;
+		color: var(--text);
+		overflow: hidden;
+		transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
 	}
 
-	.card:hover {
-		transform: translateY(-8px);
+	.instrument-card:hover {
+		transform: translateY(-4px);
+		box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.7);
 	}
 
-	.card-enfant:hover {
-		box-shadow: 0 15px 30px rgba(255, 64, 129, 0.2);
-		border-color: var(--accent-enfant);
+	.instrument-card.piano:hover {
+		border-color: #38bdf8;
 	}
 
-	.card-adulte:hover {
-		box-shadow: 0 15px 30px rgba(79, 195, 247, 0.2);
-		border-color: var(--accent-adulte);
+	.instrument-card.batterie:hover {
+		border-color: #f59e0b;
 	}
 
-	.card-content {
-		padding: 40px 30px;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: space-between;
-		height: 100%;
-		gap: 15px;
-	}
-
-	.card-emoji {
+	.emoji {
 		font-size: 3rem;
-		margin-bottom: 10px;
+		display: block;
+		margin-bottom: 20px;
 	}
 
 	h2 {
-		font-size: 1.6rem;
+		font-size: 1.75rem;
 		font-weight: 700;
+		margin-bottom: 12px;
 	}
 
-	p {
-		font-size: 1rem;
+	.instrument-card p {
 		color: var(--text-muted);
-		line-height: 1.5;
-		margin-bottom: 15px;
-	}
-
-	.btn {
-		display: inline-block;
-		padding: 12px 24px;
-		border-radius: 25px;
-		font-weight: 700;
 		font-size: 0.95rem;
-		transition: background-color 0.2s, transform 0.1s;
-		width: 100%;
+		line-height: 1.6;
+		margin-bottom: 32px;
+		min-height: 48px;
 	}
 
-	.card-enfant .btn {
-		background-color: var(--accent-enfant);
-		color: white;
+	.start-link {
+		font-size: 0.9rem;
+		font-weight: 600;
+		transition: color 0.2s;
 	}
 
-	.card-adulte .btn {
-		background-color: var(--accent-adulte);
-		color: #121214;
-	}
+	.piano .start-link { color: #38bdf8; }
+	.batterie .start-link { color: #f59e0b; }
 
-	@keyframes bounce {
-		0%, 100% { transform: translateY(0); }
-		50% { transform: translateY(-10px); }
-	}
+	.piano:hover .start-link { color: #0ea5e9; }
+	.batterie:hover .start-link { color: #d97706; }
 </style>

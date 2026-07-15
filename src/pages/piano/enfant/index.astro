@@ -1,0 +1,235 @@
+---
+// Code serveur (exécuté à la compilation)
+const title = "Le Royaume de la Musique 🎈";
+
+// Liste des leçons pour enfants
+const lecons = [
+  {
+    id: 1,
+    titre: "La maison des notes",
+    emoji: "🏠",
+    description: "Apprends à repérer le Do grâce aux touches noires !",
+    couleur: "card-jaune",
+    lien: "/methode-musique/enfant/lecon1"
+  },
+  {
+    id: 2,
+    titre: "Le Géant et la Souris",
+    emoji: "🐘🐭",
+    description: "Joue avec la force et la vitesse de tes doigts.",
+    couleur: "card-bleu",
+    lien: "/methode-musique/enfant/lecon2"
+  },
+  {
+    id: 3,
+    titre: "Bientôt disponible...",
+    emoji: "🌟",
+    description: "De nouvelles aventures musicales arrivent très vite !",
+    couleur: "card-gris",
+    lien: "#"
+  }
+];
+---
+
+<html lang="fr">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<title>{title}</title>
+	</head>
+	<body>
+		<!-- Bouton Retour Accueil -->
+		<a href="/methode-musique/" class="back-button">🏠 Retour à l'accueil</a>
+
+		<main class="kids-container">
+			<header class="header">
+				<span class="mascote animate-bounce">🦖</span>
+				<h1>Le Royaume de la Musique !</h1>
+				<p class="subtitle">Prêt pour ton voyage musical ? Choisis une carte magique !</p>
+			</header>
+
+			<div class="cards-grid">
+				{lecons.map((lecon) => (
+					<a href={lecon.lien} class={`kid-card ${lecon.couleur}`}>
+						<div class="card-badge">Étape {lecon.id}</div>
+						<span class="card-emoji">{lecon.emoji}</span>
+						<h2>{lecon.titre}</h2>
+						<p>{lecon.description}</p>
+						<span class="kid-btn">Jouer !</span>
+					</a>
+				))}
+			</div>
+		</main>
+	</body>
+</html>
+
+<style>
+	:root {
+		--bg-kids: #fffae0;
+		--text-kids: #2c2a29;
+		--color-jaune: #ffd54f;
+		--color-bleu: #4fc3f7;
+		--color-rose: #ff4081;
+		--color-gris: #e0e0e0;
+		--shadow-color: rgba(0, 0, 0, 0.1);
+	}
+
+	* {
+		box-sizing: border-box;
+		margin: 0;
+		padding: 0;
+	}
+
+	body {
+		background-color: var(--bg-kids);
+		color: var(--text-kids);
+		font-family: 'Comic Sans MS', 'Chalkboard SE', 'Segoe UI', sans-serif;
+		min-height: 100vh;
+		padding: 20px;
+	}
+
+	/* Bouton de retour rigolo */
+	.back-button {
+		display: inline-block;
+		text-decoration: none;
+		color: var(--text-kids);
+		background-color: white;
+		padding: 10px 20px;
+		border-radius: 50px;
+		font-weight: bold;
+		box-shadow: 0 4px 0 var(--shadow-color);
+		transition: transform 0.1s;
+		margin-bottom: 20px;
+		border: 2px solid var(--text-kids);
+	}
+	.back-button:active {
+		transform: translateY(4px);
+		box-shadow: none;
+	}
+
+	.kids-container {
+		max-width: 1000px;
+		margin: 0 auto;
+		text-align: center;
+		padding-bottom: 50px;
+	}
+
+	.header {
+		margin-bottom: 40px;
+	}
+
+	.mascote {
+		font-size: 5rem;
+		display: inline-block;
+		margin-bottom: 10px;
+	}
+
+	h1 {
+		font-size: 2.5rem;
+		color: var(--color-rose);
+		text-shadow: 2px 2px 0px white, 4px 4px 0px var(--text-kids);
+		margin-bottom: 10px;
+	}
+
+	.subtitle {
+		font-size: 1.2rem;
+		font-weight: bold;
+		color: #5d4037;
+	}
+
+	/* Grille des leçons */
+	.cards-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+		gap: 30px;
+		padding: 10px;
+	}
+
+	/* Cartes de leçons */
+	.kid-card {
+		text-decoration: none;
+		color: var(--text-kids);
+		border-radius: 30px;
+		border: 3px solid var(--text-kids);
+		padding: 30px 20px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: space-between;
+		position: relative;
+		transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+		box-shadow: 0 8px 0 var(--text-kids);
+		height: 380px;
+	}
+
+	.kid-card:hover {
+		transform: translateY(-8px) scale(1.02);
+	}
+
+	/* Badges d'étapes */
+	.card-badge {
+		position: absolute;
+		top: -15px;
+		background-color: var(--text-kids);
+		color: white;
+		padding: 5px 15px;
+		border-radius: 20px;
+		font-weight: bold;
+		font-size: 0.9rem;
+	}
+
+	/* Couleurs des cartes */
+	.card-jaune { background-color: var(--color-jaune); }
+	.card-bleu { background-color: var(--color-bleu); }
+	.card-gris { 
+		background-color: var(--color-gris);
+		opacity: 0.8;
+		pointer-events: none; /* Désactivé pour le moment */
+	}
+
+	.card-emoji {
+		font-size: 4rem;
+		margin-bottom: 15px;
+	}
+
+	h2 {
+		font-size: 1.6rem;
+		margin-bottom: 10px;
+	}
+
+	p {
+		font-size: 1rem;
+		line-height: 1.4;
+		color: #4e4d4d;
+		flex-grow: 1;
+		margin-bottom: 20px;
+	}
+
+	/* Gros boutons rigolos */
+	.kid-btn {
+		display: inline-block;
+		width: 100%;
+		background-color: white;
+		padding: 12px;
+		border-radius: 50px;
+		font-weight: 900;
+		font-size: 1.1rem;
+		border: 3px solid var(--text-kids);
+		box-shadow: 0 4px 0 var(--text-kids);
+	}
+
+	.kid-card:active .kid-btn {
+		box-shadow: none;
+	}
+
+	/* Animation rebondissante */
+	.animate-bounce {
+		animation: bounce 2s infinite ease-in-out;
+	}
+
+	@keyframes bounce {
+		0%, 100% { transform: translateY(0); }
+		50% { transform: translateY(-15px); }
+	}
+</style>
